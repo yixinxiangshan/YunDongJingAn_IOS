@@ -1,0 +1,17 @@
+{
+	"ECBaseLabel":{
+		"textColor":"#000000",
+		"textSize":"13",
+		"width":"wrap_content",
+		"height":"wrap_content"
+	},
+	"ECBaseImageView":{
+		"contentMode":"ScaleAspectFit",
+		"width":"wrap_content",
+		"height":"wrap_content"
+	},
+	"ECLinearLayout":{
+		"orientation":"vertical"
+	}
+
+}

@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=320, initial-scale=1.0, user-scalable=no">
+<script>
+	window.onerror = function(err) {
+		log('window.onerror: ' + err);
+	}
+	var bridge = {};
+	document.addEventListener('WebViewJavascriptBridgeReady', onBridgeReady, false)
+	function onBridgeReady(event) {
+		bridge = event.bridge;
+		var uniqueId = 1;
+		// 初始化 桥接 
+		bridge.init(function(message, responseCallback) {
+			var data = { 'Javascript Responds':'Wee!' };
+			responseCallback(data);
+		});
+		//注册 接口 给 oc 调用，暂时不用
+		bridge.registerHandler('postEvent', function(data, responseCallback) {
+
+		});
+		bridge.registerHandler('sendMsgtoWebView', function(msg, responseCallback) {
+			ECLog("msg in sendMsgWebView handler ......");
+
+		    pushMsg($.parseJSON(msg));
+	    });
+	    setTimeout(initConfig,100);
+	};
+	var Original = {
+		postEvent : function(methodName, param1, param2, param3){
+			var params = {
+				"methodName":methodName,
+				"param1" : param1,
+				"param2" : param2,
+				"param3" : param3
+			}
+			bridge.send(params, null);
+		},
+		
+		//获取项目配制及网络资源的本地路径
+		getDecoratePath : function(responseCallback){
+			bridge.callHandler('getDecoratePath', null, responseCallback);
+		},
+		//获取项目配制
+		getDecorateConfig : function(responseCallback){
+			bridge.callHandler('getDecorateConfig', null, responseCallback);
+		},
+
+		//
+		getNetParam : function(params, responseCallback){
+			bridge.callHandler('getNetParam', params, responseCallback);
+		}
+	};
+	function callWidgetMethod(controlId, methodName, param1, param2){
+		var params = {
+				"controlId" : controlId,
+				"methodName" : methodName,
+				"param1" : param1,
+				"param2" : param2,
+			}
+			bridge.callHandler('callWidgetMethod', params, null);
+	};
+
+	function callDeviceApi(methodName,params,responseCallback){
+		ECLog("call device api");
+		bridge.callHandler(methodName, params, responseCallback);
+	}
+	function ECLog(msg){
+		bridge.callHandler('ECLog',msg,null);
+	}
+</script>
+<style type="text/css">
+#{global.css}
+</style>
+<script>
+
+#{global.js}
+</script>
+</head>
+#{html body}
+</html>

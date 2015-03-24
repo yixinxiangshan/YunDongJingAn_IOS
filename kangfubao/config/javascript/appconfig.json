@@ -1,0 +1,12 @@
+{
+  "uninstall_package" : "",
+  "appname" : "kangfuzhushou",
+  "start_controller": "page_feedback",
+  "guide_page":"",
+  "startPushService": "false",
+  "splash": {},
+  "controllerFilter":{
+  },
+  "menu": [
+  ]
+}

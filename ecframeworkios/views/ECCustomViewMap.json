@@ -1,0 +1,21 @@
+{
+	//baseview
+    "baseview":"ECBaseView",
+    "bv":"ECBaseView",
+	/*
+	*/
+	"ECLinearLayout":"ECLinearLayout",
+	"LinearLayout":"ECLinearLayout",
+	"linearlayout":"ECLinearLayout",
+	"ll":"ECLinearLayout",
+
+	/**
+	*
+	*/
+	"TextView":"ECBaseLabel",
+
+	/**
+	*
+	*/
+	"ImageView":"ECBaseImageView"
+}
