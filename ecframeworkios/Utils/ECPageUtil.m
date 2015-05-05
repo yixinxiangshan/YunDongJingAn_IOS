@@ -179,7 +179,9 @@
     if (pageContext.waitBeforeLoadView) {
         return;
     }
-    //    ECLog(@"pageConfigString length = %lu",(unsigned long)[pageConfigString length]);
+//    NSLog(@"pageConfigString length = %lu",(unsigned long)[pageConfigString length]);
+//    NSLog(@"pageConfigString = %@",pageConfigString);
+//
     //save page-level params
     
     // start parse pageString

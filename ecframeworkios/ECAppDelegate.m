@@ -103,7 +103,7 @@
 }
 
 - (void)downloadConfig{
-    //ECLog(@"config url : %@",CONFIG_URL);
+    ECLog(@"config url : %@",CONFIG_URL);
     [[ECDownloadRequest newInstance:CONFIG_URL] postDownloadRequest:@"test.download"
                                                            delegate:self
                                                       startSelector:@selector(downloadstarted:)
@@ -113,16 +113,16 @@
                                                            fileName:@"config.zip" ];
 }
 -(void)downloadstarted:(NSNotification*) noti{
-    //NSLog(@"downloadstarted ");
+    ECLog(@"downloadstarted ");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
 -(void)downloadProcess:(NSNotification*) noti{
-    // float process = [(NSNumber*)[noti.userInfo objectForKey:@"process"] floatValue];
-    //NSLog(@"downloadProcess : %f" , process);
+    float process = [(NSNumber*)[noti.userInfo objectForKey:@"process"] floatValue];
+    //ECLog(@"downloadProcess : %f" , process);
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
 -(void)downloadFinished:(NSNotification*) noti{
-    // NSLog(@"downloadFinished : %@",[noti.userInfo objectForKey:@"filePath"]);
+    ECLog(@"downloadFinished : %@",[noti.userInfo objectForKey:@"filePath"]);
     NSString *filepath = [noti.userInfo objectForKey:@"filePath"];
     ZipArchive* zipArchive = [[ZipArchive alloc] init];
     if ([zipArchive UnzipOpenFile:filepath]) {
@@ -140,12 +140,17 @@
     NSLog(@"downloadFailed XXXX ");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
+
 - (void)loadJSLibrary{
     NSString* js = nil;
     [_jsUtil runJS:[NSString stringWithFormat:@"var _lang='%@';",[[NSLocale preferredLanguages] objectAtIndex:0]]];
     
     js = [[NSString alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@/javascript/all_ios.js",[NSString appConfigPath]] encoding:NSUTF8StringEncoding error:NULL];
+    
+    //NSLog(@"app config path %@", [NSString appConfigPath]);
+    
     _appConfig = [[NSString alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@/javascript/appconfig.json",[NSString appConfigPath]] encoding:NSUTF8StringEncoding error:NULL];
+    
     [_jsUtil runJS:js];
 }
 
@@ -163,12 +168,13 @@
         exit(0);
     }
     NSDictionary* appConfigDic = [ECJsonUtil objectWithJsonString:_appConfig];
-    //ECLog(@"_appConfig : \n%@",_appConfig);
+    //NSLog(@"_appConfig : \n%@",_appConfig);
     //TODO:获取Token
     //TODO:检测更新
     //TODO:开启推送
     //开启引导界面
     NSString* indexPage = [appConfigDic objectForKey:@"start_controller"];
+    NSLog(@"indexPage : \n%@",indexPage);
     if ([indexPage isEmpty]) {
         ECLog(@"配置文件没有指定引导界面");
         exit(0);

@@ -25,11 +25,11 @@
 
 
 #define API_VERSION     @"1.0"
-#define API_KEY         @"a21e155dab77667d97dd3fbcde0b3775"
-#define CLIENT_SECRET   @"0028bb24cc40a1ae3e32348544ed2f84"
-#define TOKEN_URL       @"http://466738310.cloudapi.nowapp.cn/oauth/token"
-#define API_URL         @"http://466738310.cloudapi.nowapp.cn/api"
-#define CONFIG_URL      @"http://central.nowapp.cn/eceditor/downJs?project=kangfuzhushou160"
+#define API_KEY         @"c7871624c24b756de846c377f4cacea5"
+#define CLIENT_SECRET   @"ac72368dee715a7e347f02f3263b59c5"
+#define TOKEN_URL       @"http://856854478.cloudapi.nowapp.cn/oauth/token"
+#define API_URL         @"http://856854478.cloudapi.nowapp.cn/api"
+#define CONFIG_URL      @"http://jingan.nowapp.cn/eceditor/downCoffee"
 #define BASE_URL_IMAGE  @"http://is.hudongka.com"
 #define AES_KEY        @"ECloudChangeFuture"
 
@@ -42,6 +42,7 @@
 
 #define ECLog(...) NSLog(__VA_ARGS__)
 #else
-#define ECLog(...)
-
+//#define ECLog(...)
+#define ECLog(...) NSLog(__VA_ARGS__)
 #endif
+

@@ -167,7 +167,7 @@
     
     CGRect rootViewFrame = [UIScreen mainScreen].bounds;
     [self.view setFrame:rootViewFrame];
-    //    ECLog(@"ECBaseViewController viewDidLoad %@" ,_parentView);
+    // NSLog(@"ECBaseViewController viewDidLoad %@" ,_parentView);
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
     // 设置宽度320
     //    CGRect frame = self.view.frame;
@@ -192,7 +192,7 @@
     self.jsContext = [[ECJSContext alloc] initWithParent:self];
     NSString *filePath = [NSString stringWithFormat:@"%@/config/%@",[NSString appConfigPath],[self.pageName stringByAppendingString:@".js"]];
     NSString *jsString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-
+    
     //流处理  安全问题 待解决。
     if (EC_ENCRYPT_ON) {
         NSFileHandle *inFile;

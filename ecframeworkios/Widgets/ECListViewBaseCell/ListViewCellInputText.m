@@ -54,13 +54,14 @@
 - (void)textViewDidChangeSelection:(GCPlaceholderTextView *)textView {
     [self.parent setFormInput:self.data[@"name"] NSString:textView.text];
 }
--(void)textViewDidBeginEditing:(UITextView *)textView{
+- (void)textViewDidBeginEditing:(UITextView *)textView{
     self.editText.layer.borderColor = [[UIColor colorWithHexString:@"#5793ff"] CGColor];
 }
 
--(void)textViewEndEditing:(GCPlaceholderTextView *)textView{
+- (void)textViewEndEditing:(GCPlaceholderTextView *)textView{
     self.editText.layer.borderColor = [[UIColor colorWithHexString:@"#D3D3D3"] CGColor];
 }
+
 + (CGFloat)heightForData:(NSDictionary *)data {
     return 0;
 }

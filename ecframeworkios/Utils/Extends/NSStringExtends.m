@@ -68,7 +68,7 @@
     if (EC_DEBUG_ON) {
         return [self appLibraryPath];
     }else{
-        return [NSString stringWithFormat:@"%@/config",[[NSBundle mainBundle] bundlePath]];
+        return [NSString stringWithFormat:@"%@/assets",[[NSBundle mainBundle] bundlePath]];
     }
 }
 #pragma mark-

@@ -248,10 +248,19 @@
     //TODO: check diffrent error ,use diffrent errorID
     ECLog(@"postRequestFailed responseString:%@",self.responseString);
     NSDictionary* data = [self parsingRespnseData:self.responseData];
+    NSArray* errors = [data objectForKey:@"errors"];
+    
     data = [data objectForKey:@"data"];
+    //ECLog(@"errors: %@", errors);
     if (data == nil || (NSNull *)data == [NSNull null]) {
-        NSDictionary* errorEntry = [NSDictionary dictionaryWithObjectsAndKeys:@"网络请求错误",@"errordes",@"300",@"errorId", nil];
-        data = [NSDictionary dictionaryWithObjectsAndKeys:errorEntry,@"error", nil];
+        //NSDictionary* errorEntry = [NSDictionary dictionaryWithObjectsAndKeys:@"网络请求错误",@"errordes",@"300",@"errorId", nil];
+        //data = [NSDictionary dictionaryWithObjectsAndKeys:errorEntry,@"error", nil];
+        if(errors != nil && [errors count] > 0)
+            data = [NSDictionary dictionaryWithObjectsAndKeys:errors,@"errors", nil];
+        else {
+            NSDictionary* errorEntry = [NSDictionary dictionaryWithObjectsAndKeys:@"网络请求错误",@"errordes",@"300",@"errorId", nil];
+            data = [NSDictionary dictionaryWithObjectsAndKeys:errorEntry,@"errors", nil];
+        }
     }
     
     //判断通知 _netDelegate是否已经被销毁，若已被销毁，则从通知中心移除
