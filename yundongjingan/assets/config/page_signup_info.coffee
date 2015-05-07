@@ -50,7 +50,7 @@ class ECpageClass
       $A().app().openPage
         page_name: "page_signup_input"
         params:
-          info: content
+          info: JSON.stringify content
         close_option: ""
     if item._type? and item._type == 'cancel'
       content =
@@ -60,7 +60,7 @@ class ECpageClass
       $A().app().openPage
         page_name: "page_signup_list"
         params:
-          info: content
+          info: JSON.stringify content
         close_option: ""
 
   onResume: () ->

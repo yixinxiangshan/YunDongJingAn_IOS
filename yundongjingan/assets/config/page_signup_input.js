@@ -34,12 +34,6 @@
           inputText: ""
         }, {
           viewType: "ListViewCellInputText",
-          inputType: "text",
-          hint: "性别（必填）",
-          name: "gender",
-          inputText: ""
-        }, {
-          viewType: "ListViewCellInputText",
           inputType: "number",
           hint: "电话（必填）",
           name: "phone",
@@ -98,9 +92,8 @@
             } else {
               root._listview_data.data[0].inputText = data.order.username;
               root._listview_data.data[1].inputText = data.order.age;
-              root._listview_data.data[2].inputText = data.order.gender;
-              root._listview_data.data[3].inputText = data.order.phone;
-              root._listview_data.data[4].inputText = data.order.address;
+              root._listview_data.data[2].inputText = "" + data.order.phone;
+              root._listview_data.data[3].inputText = "" + data.order.address;
               root._listview_data.data.push({
                 viewType: "ListViewCellButton",
                 inputType: "number",
@@ -121,7 +114,7 @@
     ECpageClass.prototype.onItemClick = function(data) {};
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
-      var address, age, gender, item, phone, username;
+      var address, age, item, phone, username;
       item = this._listview_data.data[data.position];
       if ((item._type != null) && item._type === 'cancel') {
         return $A().app().showConfirm({
@@ -153,15 +146,12 @@
       } else {
         username = data._form.username != null ? data._form.username : "";
         age = data._form.age != null ? data._form.age : "";
-        gender = data._form.gender != null ? data._form.gender : "";
         phone = data._form.phone != null ? data._form.phone : "";
         address = data._form.address != null ? data._form.address : "";
         if (username === "") {
           return $A().app().makeToast("请输入您的姓名");
         } else if (age === "") {
           return $A().app().makeToast("请输入您的年龄");
-        } else if (gender === "") {
-          return $A().app().makeToast("请输入您的性别");
         } else if (phone === "") {
           return $A().app().makeToast("请输入您的电话");
         } else {
@@ -175,7 +165,6 @@
                 title: root._item_info.content_title,
                 username: username,
                 age: age,
-                gender: gender,
                 phone: phone,
                 address: address,
                 cacheTime: 0
@@ -196,7 +185,6 @@
                 title: root._item_info.content_title,
                 username: username,
                 age: age,
-                gender: gender,
                 phone: phone,
                 address: address,
                 cacheTime: 0

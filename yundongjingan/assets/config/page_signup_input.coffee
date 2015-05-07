@@ -24,13 +24,13 @@ class ECpageClass
         name: "age"
         inputText: ""
       }
-      {
-        viewType: "ListViewCellInputText"
-        inputType: "text"
-        hint: "性别（必填）"
-        name: "gender"
-        inputText: ""
-      }
+#      {
+#        viewType: "ListViewCellInputText"
+#        inputType: "text"
+#        hint: "性别（必填）"
+#        name: "gender"
+#        inputText: ""
+#      }
       {
         viewType: "ListViewCellInputText"
         inputType: "number"
@@ -88,9 +88,9 @@ class ECpageClass
           else
             root._listview_data.data[0].inputText = data.order.username
             root._listview_data.data[1].inputText = data.order.age
-            root._listview_data.data[2].inputText = data.order.gender
-            root._listview_data.data[3].inputText = data.order.phone
-            root._listview_data.data[4].inputText = data.order.address
+#            root._listview_data.data[2].inputText = data.order.gender
+            root._listview_data.data[2].inputText = "#{data.order.phone}"
+            root._listview_data.data[3].inputText = "#{data.order.address}"
             root._listview_data.data.push
               viewType: "ListViewCellButton"
               inputType: "number"
@@ -131,7 +131,7 @@ class ECpageClass
     else
       username = if data._form.username? then data._form.username else ""
       age = if data._form.age? then data._form.age else ""
-      gender = if data._form.gender? then data._form.gender else ""
+#      gender = if data._form.gender? then data._form.gender else ""
       phone = if data._form.phone? then data._form.phone else ""
       address = if data._form.address? then data._form.address else ""
 
@@ -139,8 +139,8 @@ class ECpageClass
         $A().app().makeToast "请输入您的姓名"
       else if age == ""
         $A().app().makeToast "请输入您的年龄"
-      else if gender == ""
-        $A().app().makeToast "请输入您的性别"
+#      else if gender == ""
+#        $A().app().makeToast "请输入您的性别"
       else if phone == ""
         $A().app().makeToast "请输入您的电话"
       else
@@ -154,7 +154,7 @@ class ECpageClass
               title: root._item_info.content_title
               username: username
               age: age
-              gender: gender
+#              gender: gender
               phone: phone
               address: address
               cacheTime: 0
@@ -172,7 +172,7 @@ class ECpageClass
               title: root._item_info.content_title
               username: username
               age: age
-              gender: gender
+#              gender: gender
               phone: phone
               address: address
               cacheTime: 0

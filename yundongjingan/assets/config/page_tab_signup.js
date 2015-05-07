@@ -82,6 +82,7 @@
                 imageSize: "middle",
                 imageSrc: "" + content.image
               },
+              _leftLayoutSize: 75,
               centerBottomdes: "" + content.abstract,
               content_id: "" + content.id
             });

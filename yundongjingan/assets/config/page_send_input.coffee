@@ -82,8 +82,8 @@ class ECpageClass
           else
             root._listview_data.data[0].inputText = data.order.consignee_name
             root._listview_data.data[1].inputText = data.order.consignee_address
-            root._listview_data.data[2].inputText = data.order.phone
-            root._listview_data.data[3].inputText = data.order.consignee_zip
+            root._listview_data.data[2].inputText = "#{data.order.phone}"
+            root._listview_data.data[3].inputText = "#{data.order.consignee_zip}"
             root._listview_data.data.push
               viewType: "ListViewCellButton"
               inputType: "number"
@@ -100,18 +100,27 @@ class ECpageClass
   onItemInnerClick: (data) ->
     item = @_listview_data.data[data.position]
     if item._type? and item._type == 'cancel'
-      $A().app().makeToast "正在删除"
-      $A().app().callApi
-        method: "trade/ships/destroy"
-        id: root._item_info.order_id
-        cacheTime: 0
-      .then (data) ->
-        if data.success == true
-          $A().app().makeToast "删除成功。"
-          $A().page().setTimeout("2000").then () ->
-            $A().app().closePage()
+      $A().app().showConfirm
+        ok: "确定",
+        title:"警告"
+        cancel: "取消",
+        message: "删除之后将无法恢复，您需要重新申请。确定需要删除吗？"
+      .then (result) ->
+        if result.state == "ok"
+          $A().app().makeToast "正在删除"
+          $A().app().callApi
+            method: "trade/ships/destroy"
+            id: root._item_info.order_id
+            cacheTime: 0
+          .then (data) ->
+            if data.success == true
+              $A().app().makeToast "删除成功。"
+              $A().page().setTimeout("2000").then () ->
+                $A().app().closePage()
+            else
+              $A().app().makeToast "删除失败，请重试或者检查您的网络是否打开。"
         else
-          $A().app().makeToast "删除失败，请重试或者检查您的网络是否打开。"
+          return false
     else
       name = if data._form.name? then data._form.name else ""
       address = if data._form.address? then data._form.address else ""

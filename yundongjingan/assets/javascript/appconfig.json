@@ -1,7 +1,7 @@
 {
   "uninstall_package" : "",
   "appname" : "yundongjingan",
-  "start_controller": "page_tab_send",
+  "start_controller": "page_index",
   "guide_page":"",
   "startPushService": "false",
   "splash": {},

@@ -89,10 +89,8 @@
       }).then(function(data) {
         var content, i, len, ref;
         if (data.errors != null) {
-
           if (data.errors[0].error_num != null) {
             if (data.errors[0].error_msg != null) {
-
               root._listview_data.data = [];
               root._listview_data.data.push({
                 viewType: "ListViewCellLine",

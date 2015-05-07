@@ -60,6 +60,7 @@ class ECpageClass
               imageSize: "middle"
               imageSrc: "#{content.image}"
             }
+            _leftLayoutSize:75,
             centerBottomdes: "#{content.abstract}"
             content_id: "#{content.id}"
         $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data

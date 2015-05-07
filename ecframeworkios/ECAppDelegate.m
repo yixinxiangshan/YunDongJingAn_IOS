@@ -117,7 +117,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
 -(void)downloadProcess:(NSNotification*) noti{
-    float process = [(NSNumber*)[noti.userInfo objectForKey:@"process"] floatValue];
+    //float process = [(NSNumber*)[noti.userInfo objectForKey:@"process"] floatValue];
     //ECLog(@"downloadProcess : %f" , process);
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
@@ -179,7 +179,7 @@
         ECLog(@"配置文件没有指定引导界面");
         exit(0);
     }
-    //    [ECPageUtil openNewPage:indexPage params:nil];
+    //[ECPageUtil openNewPage:indexPage params:nil];
     [ECPageUtil openNewPageWithFinishedOthers:indexPage params:nil];
 }
 

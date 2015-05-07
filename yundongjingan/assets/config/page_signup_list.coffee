@@ -51,7 +51,7 @@ class ECpageClass
     $A().app().openPage
       page_name: "page_signup_input"
       params:
-        info: content
+        info: JSON.stringify content
       close_option: ""
 
   onItemInnerClick: (data) ->

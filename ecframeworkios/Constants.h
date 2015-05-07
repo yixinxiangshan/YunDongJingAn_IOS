@@ -29,7 +29,7 @@
 #define CLIENT_SECRET   @"ac72368dee715a7e347f02f3263b59c5"
 #define TOKEN_URL       @"http://856854478.cloudapi.nowapp.cn/oauth/token"
 #define API_URL         @"http://856854478.cloudapi.nowapp.cn/api"
-#define CONFIG_URL      @"http://jingan.nowapp.cn/eceditor/downCoffee"
+#define CONFIG_URL      @"http://jinganapi.nowapp.cn/eceditor/downCoffee"
 #define BASE_URL_IMAGE  @"http://is.hudongka.com"
 #define AES_KEY        @"ECloudChangeFuture"
 
