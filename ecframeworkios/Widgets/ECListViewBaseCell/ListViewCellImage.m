@@ -35,6 +35,7 @@
     NSString *name = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     self.version.text = [[name stringByAppendingString:@" "] stringByAppendingString:version];
+    self.version.text = @"";
     NSLog(@"version: %@", self.version.text);
 }
 
