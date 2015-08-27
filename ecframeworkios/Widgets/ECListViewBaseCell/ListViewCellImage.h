@@ -10,4 +10,5 @@
 
 @interface ListViewCellImage : ECListViewBaseCell<ECListViewCellProtocol>
 @property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *version;
 @end

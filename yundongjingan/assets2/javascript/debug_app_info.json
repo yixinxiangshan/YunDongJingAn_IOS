@@ -1,0 +1,18 @@
+{
+  "API_VERSION":"1.0",
+	"project_id":"com.ecloudiot.kangfubao",
+	"project_name":"kangfubao",
+	"project_displayName":"康复宝",
+	"project_version":"0.9",
+	"API_KEY":"a21e155dab77667d97dd3fbcde0b3775",
+	"CLIENT_SECRET":"0028bb24cc40a1ae3e32348544ed2f84",
+	"TOKEN_URL":"http://openapi.nowapp.cn/oauth/token",
+	"API_URL":"http://466738310.cloudapi.nowapp.cn:80/api",
+	"BASE_URL_IMAGE":"http://is.hudongka.com/",
+  "ShareSDK_AppKey":"iosv1101",
+  "share_title":"分享",
+  "share_url":"http://www.sharesdk.cn",
+	"appId_share":{
+		"wx_appId":"wxc8ad3bf811a6d7f4"
+	}
+}

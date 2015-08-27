@@ -163,12 +163,13 @@
 {
     [super viewDidLoad];
     // NSLog(@"start page ...................................................................... %@", self.id);
-    // ECLog(@"viewDidLoad : %@ " , self.pageId);
+    //ECLog(@"viewDidLoad : %@ " , self.pageId);
     
     CGRect rootViewFrame = [UIScreen mainScreen].bounds;
     [self.view setFrame:rootViewFrame];
     // NSLog(@"ECBaseViewController viewDidLoad %@" ,_parentView);
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
+
     // 设置宽度320
     //    CGRect frame = self.view.frame;
     //    frame.size.width = 320;

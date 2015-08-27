@@ -283,6 +283,7 @@ CGFloat totalHeight(){
             [image setImage:[UIImage imageWithPath:data[@"imageSrc"]]];
         }
     }else if ([[data objectForKey:@"imageType"] isEqualToString:@"resource"] ) {
+        ECLog(@"image width %f, name: %@", imageSize.width, data[@"imageSrc"]);
         if (imageSize.width != 0.0)
             [image setImage: [[UIImage imageNamed:[data[@"imageSrc"] stringByAppendingString:@".png"]]  fitToWidth:imageSize.width]];
         else

@@ -33,14 +33,30 @@
         [self.title removeFromSuperview];
         //        [self.title setHidden:YES];
     }else{
-        [self.title setText:self.data[@"content"]];
+        //[self.title setText:self.data[@"content"]];
+        int height = self.title.font.pointSize*1.5;
+        
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineHeightMultiple = height;
+        paragraphStyle.maximumLineHeight = height;
+        paragraphStyle.minimumLineHeight = height;
+        
+        NSDictionary *ats = @{
+                              NSFontAttributeName : self.title.font,
+                              NSParagraphStyleAttributeName : paragraphStyle,
+                              };
+        
+        self.title.attributedText = [[NSAttributedString alloc] initWithString:self.data[@"content"] attributes:ats];
+        
+        [self.title sizeToFit];
     }
     
     [self.parent.pageContext dispatchJSEvetn:[NSString stringWithFormat:@"%@.%@",self.parent.controlId,@"onFixedItemDisplay"]
                                   withParams:@{@"position":[NSNumber numberWithInteger:self.position],@"target":@""}];
 }
 
-+ (CGFloat)heightForData:(NSDictionary *)data
+
+ + (CGFloat)heightForData:(NSDictionary *)data
 {
     // 屏幕
     CGRect frm =[ UIScreen mainScreen ].applicationFrame;
@@ -50,9 +66,12 @@
     label.lineBreakMode = NSLineBreakByWordWrapping;
     UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:18.f];
     label.font = font;
-    CGSize size = CGSizeMake( frm.size.width - 30.f , CGFLOAT_MAX );  //LableWight标签宽度，固定的
-    CGSize labelsize = [data[@"content"] sizeWithFont:font constrainedToSize:size lineBreakMode:label.lineBreakMode];
-    return labelsize.height + 20.f;
+    CGSize maxSize = CGSizeMake( frm.size.width - 30.f , CGFLOAT_MAX );  //LableWight标签宽度，固定的
+    
+    //CGSize neededSize = [label sizeThatFits:maxSize];
+
+    CGSize labelsize = [data[@"content"] sizeWithFont:font constrainedToSize:maxSize lineBreakMode:label.lineBreakMode];
+    return labelsize.height * 1.5;
 
 }
 

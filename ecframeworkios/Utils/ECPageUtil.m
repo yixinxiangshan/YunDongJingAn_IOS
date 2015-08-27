@@ -20,6 +20,7 @@
 #import "NSArrayExtends.h"
 #import "ECWidgetUtil.h"
 //#import "ECJSUtil.h"
+#import "Constants.h"
 
 
 @interface ECPageData : NSObject

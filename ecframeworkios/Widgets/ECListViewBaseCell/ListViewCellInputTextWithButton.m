@@ -12,6 +12,12 @@
 #import "ECBaseViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface ListViewCellInputTextWithButton()
+@property (nonatomic) int countDown;
+@property (nonatomic) NSTimer *timer;
+@property (nonatomic) NSString *title;
+@end
+
 @implementation ListViewCellInputTextWithButton
 
 - (id)initWithStyle:(UITableViewCellStyle)style
@@ -27,12 +33,13 @@
 }
 
 - (void)awakeFromNib {
-    // NSLog(@"listviewcellline centerTitle awakeFromNib");
+    //ECLog(@"ListViewCellInputTextWithButton centerTitle awakeFromNib");
 }
 
 - (void)setData:(NSDictionary *)data {
     [ECViewUtil setTextButtonWithConfig:self.button
                                    data:@{@"backgroundColor": @"#6Ba0ff" , @"hlBackgroundColor": @"#6Ba0ff", @"borderColor": @"#6Ba0ff" , @"titleColor": @"#ffffff" , @"hlTitleColor": @"#000000" , @"cornerRadius": @"5" }];
+    self.title = data[@"btnName"];
     [self.button setTitle:data[@"btnName"] forState:UIControlStateNormal];
     [self.button setTag:1];
     [self.button addTarget:self action:@selector(buttonTouch:) forControlEvents:UIControlEventTouchDown];
@@ -79,11 +86,34 @@
     [self.parent.pageContext dispatchJSEvetn:[NSString stringWithFormat:@"%@.%@",self.parent.controlId,@"onItemInnerClick"]
                                   withParams:@{@"position":[NSNumber numberWithInteger:self.position],@"target":actionType ,@"_form":[self.parent getFormData]}];
     
+    if(self.editText.text.length == 11) {
+        self.countDown = 10;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeLeft) userInfo:nil repeats:YES];
+    }
+    
+}
+
+- (void)updateTimeLeft {
+    
+    ECLog(@"%i", self.countDown);
+    if (self.countDown == 0) {
+        self.button.enabled = YES;
+        [self.button setTitle:self.title forState:UIControlStateNormal];
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    else{
+        self.countDown--;
+        self.button.enabled = NO;
+        self.button.alpha = 1.0f;
+        [self.button setTitle:[NSString stringWithFormat:@"%d秒",self.countDown] forState:UIControlStateNormal];
+    }
 }
 
 - (void)textViewDidChangeSelection:(GCPlaceholderTextView *)textView {
     [self.parent setFormInput:self.data[@"name"] NSString:textView.text];
 }
+
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     self.editText.layer.borderColor = [[UIColor colorWithHexString:@"#5793ff"] CGColor];
 }

@@ -23,6 +23,7 @@
 #import "APService.h"
 #import  <TestinAgent/TestinAgent.h>
 #import <PgySDK/PgyManager.h>
+#import "ECSphereViewController.h"
 
 @interface ECAppDelegate ()
 @property (nonatomic, strong) NSString* appConfig;
@@ -137,7 +138,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
 -(void)downloadFailed:(NSNotification*) noti{
-    NSLog(@"downloadFailed XXXX ");
+    ECLog(@"downloadFailed XXXX ");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
 
@@ -154,7 +155,105 @@
     [_jsUtil runJS:js];
 }
 
+-(void) genInit{
+    //if (EC_DEBUG_ON) {
+    if(YES){
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"showGuidanceView"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    NSString *showGuidanceView = [[NSUserDefaults standardUserDefaults] objectForKey:@"showGuidanceView"];
+    
+    if (![showGuidanceView isEqualToString:@"showGuidanceView"]) {
+        //欢迎界面
+        [[NSUserDefaults standardUserDefaults] setObject:@"showGuidanceView" forKey:@"showGuidanceView"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
 
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [scrollView setContentSize:scrollView.frame.size];
+        scrollView.showsHorizontalScrollIndicator = NO;
+        scrollView.showsVerticalScrollIndicator = NO;
+        scrollView.pagingEnabled = YES;
+        //[self.view addSubview:scrollView];
+        
+        NSString *hFlag = @"";
+        ECLog(@"screen height : %f",[UIScreen mainScreen].bounds.size.height);
+        if ([UIScreen mainScreen].bounds.size.height == 568) {
+            hFlag = @"-568h";
+        }
+        if ([UIScreen mainScreen].bounds.size.height == 736) {
+            hFlag = @"-736h";
+        }
+        
+        int imageCount = 0;
+        while (YES) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"Default%i%@",imageCount,hFlag]];
+            if (!image) {
+                break;
+            }
+            imageCount ++;
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            [imageView setCenter:CGPointMake(scrollView.frame.size.width * ((float)imageCount - 0.5), scrollView.frame.size.height/2)];
+            
+            [scrollView addSubview:imageView];
+        }
+        [scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * imageCount, scrollView.frame.size.height)];
+        
+        UIButton *button = [[UIButton alloc] init];
+        [button.titleLabel setFont:[UIFont systemFontOfSize:19]];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button setFrame:CGRectMake(0, 0, 300, 44)];
+        [button setCenter:CGPointMake(scrollView.frame.size.width * ((float)imageCount - 0.5), scrollView.frame.size.height - 44)];
+        
+        [button setTitle:@"开始使用" forState:UIControlStateNormal];
+        UIImage *rightArrowImage = [UIImage imageNamed:@"right_arrow.png"];
+        [button setImage:rightArrowImage forState:UIControlStateNormal];
+        
+        if (ISIOS7) {
+            [button setTintColor:[UIColor whiteColor]];
+        }
+        //布局 title image
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(0, - rightArrowImage.size.width, 0, rightArrowImage.size.width + 5 )];
+        [button setImageEdgeInsets:UIEdgeInsetsMake(0, button.titleLabel.frame.size.width, 0, - button.titleLabel.frame.size.width - 5)];
+        
+        //[button setBackgroundColor:[UIColor redColor]];
+        
+        [scrollView addSubview:button];
+        
+        [button addTarget:self action:@selector(startApp1) forControlEvents:UIControlEventTouchUpInside];
+    }else{
+        [self startApp];
+    }
+}
+
+-(void) startApp1{
+    //初始化 shareSDK
+    //    [ECShareUtils initializeShareSDK];
+    
+    //启动程序
+    [self loadJSLibrary];
+    if (!_appConfig) {
+        ECLog(@"下载配置文件失败");
+        exit(0);
+    }
+    NSDictionary* appConfigDic = [ECJsonUtil objectWithJsonString:_appConfig];
+    //NSLog(@"_appConfig : \n%@",_appConfig);
+    //TODO:获取Token
+    //TODO:检测更新
+    //TODO:开启推送
+    //开启引导界面
+    
+    
+    NSString* indexPage = [appConfigDic objectForKey:@"start_controller"];
+    NSLog(@"indexPage : \n%@",indexPage);
+    if ([indexPage isEmpty]) {
+        ECLog(@"配置文件没有指定引导界面");
+        exit(0);
+    }
+    [ECPageUtil openNewPage:indexPage params:nil];
+    //[ECPageUtil openNewPageWithFinishedOthers:indexPage params:nil];
+}
 
 
 -(void) startApp{
@@ -173,6 +272,8 @@
     //TODO:检测更新
     //TODO:开启推送
     //开启引导界面
+    
+    
     NSString* indexPage = [appConfigDic objectForKey:@"start_controller"];
     NSLog(@"indexPage : \n%@",indexPage);
     if ([indexPage isEmpty]) {
@@ -180,7 +281,16 @@
         exit(0);
     }
     //[ECPageUtil openNewPage:indexPage params:nil];
-    [ECPageUtil openNewPageWithFinishedOthers:indexPage params:nil];
+    [[[ECAppUtil shareInstance] controllers] removeAllObjects];
+    
+    ECSphereViewController* rootViewController = [[ECSphereViewController alloc] init];
+    
+    //设置为启动界面
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    [ECAppDelegate appDelegate].window.rootViewController = navController;
+    [[ECAppDelegate appDelegate].window makeKeyAndVisible];
+    
+    //[ECPageUtil openNewPageWithFinishedOthers:indexPage params:nil];
 }
 
 // 激光推送方法 start

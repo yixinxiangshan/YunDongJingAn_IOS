@@ -32,10 +32,11 @@
     [super setData:data];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [ECViewUtil getImageByConfig:self.image config:self.data[@"image"]];
-    
+    NSString *name = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    self.version.text = [[name stringByAppendingString:@" "] stringByAppendingString:version];
+    NSLog(@"version: %@", self.version.text);
 }
-
-
 
 
 + (CGFloat)heightForData:(NSDictionary *)data

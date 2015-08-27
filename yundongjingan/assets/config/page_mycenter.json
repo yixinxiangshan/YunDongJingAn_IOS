@@ -1,0 +1,73 @@
+{
+  "name": "page_mycenter",
+  "page_id": "page_mycenter",
+  "glb_ctl_cfg": false,
+  "datasource": {
+    "method": "",
+    "params": [],
+    "adapter": [],
+    "data": {}
+  },
+  "setEvent": [],
+  "configs": [],
+  "auto_start_controls": [
+    "page_mycenter_ActionBarWidget_0",
+    "page_mycenter_ListViewBase_0"
+  ],
+  "position": [],
+  "attr": [],
+  "controls": [
+    {
+      "control_id": "page_mycenter_ListViewBase_0",
+      "xtype": "ListViewBase",
+      "layout": "",
+      "script": false,
+      "datasource": {
+        "method": "",
+        "cache": "",
+        "params": [],
+        "adapter": [],
+        "data": {}
+      },
+      "setEvent": [],
+      "configs": [],
+      "attr": [],
+      "auto_start_controls": true,
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_container_llayout"
+        },
+        {
+          "key": "location",
+          "value": "0"
+        },
+        {
+          "key": "insertType",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "control_id": "page_mycenter_ActionBarWidget_0",
+      "xtype": "ActionBarWidget",
+      "layout": "",
+      "datasource": {
+        "method": "",
+        "params": [],
+        "adapter": [],
+        "data": {
+          "actionBarBg": "#FFf9f9f9",
+          "homeIcon": "webview/images/icon/default/actionbar_back.png",
+          "title": "个人中心",
+          "withActionBar": "true"
+        }
+      },
+      "setEvent": [],
+      "configs": [],
+      "auto_start_controls": false,
+      "position": [],
+      "attr": []
+    }
+  ]
+}

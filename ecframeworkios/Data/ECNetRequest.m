@@ -247,6 +247,8 @@
     [ECViewUtil closeLoadingDialog];
     //TODO: check diffrent error ,use diffrent errorID
     ECLog(@"postRequestFailed responseString:%@",self.responseString);
+    ECLog(@"postRequestFailed responseData:%@",self.responseData);
+
     NSDictionary* data = [self parsingRespnseData:self.responseData];
     NSArray* errors = [data objectForKey:@"errors"];
     

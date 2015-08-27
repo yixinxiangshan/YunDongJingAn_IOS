@@ -43,7 +43,7 @@
     [ECViewUtil setText:self.centerBottomdes2 data:data[@"centerBottomdes2"]];
     [ECViewUtil setText:self.centerRighttopdes data:data[@"centerRighttopdes"]];
     [ECViewUtil setText:self.centerRightdes data:data[@"centerRightdes"]];
-    [ECViewUtil setText:self.centerRightdes data:data[@"rightDes"]];
+    //[ECViewUtil setText:self.centerRightdes data:data[@"rightDes"]];
     [ECViewUtil getImageByConfig:self.leftImage config:data[@"leftImage"]];
     [ECViewUtil getImageByConfig:self.rightImage config:data[@"rightImage"]];
     [ECViewUtil getImageByConfig:self._bottomDivider config:data[@"_bottomDivider"]];

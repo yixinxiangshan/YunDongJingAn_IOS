@@ -1,0 +1,51 @@
+{
+  "name": "page_signup_info",
+  "page_id": "page_signup_info",
+  "glb_ctl_cfg": false,
+  "datasource": {
+    "method": "",
+    "params": [],
+    "adapter": [],
+    "data": {}
+  },
+  "setEvent": [],
+  "configs": [],
+  "auto_start_controls": [
+    "page_signup_info_ListViewBase_0"
+  ],
+  "position": [],
+  "attr": [],
+  "controls": [
+    {
+      "control_id": "page_signup_info_ListViewBase_0",
+      "xtype": "ListViewBase",
+      "layout": "",
+      "script": false,
+      "datasource": {
+        "method": "",
+        "cache": "",
+        "params": [],
+        "adapter": [],
+        "data": {}
+      },
+      "setEvent": [],
+      "configs": [],
+      "attr": [],
+      "auto_start_controls": true,
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_container_llayout"
+        },
+        {
+          "key": "location",
+          "value": "0"
+        },
+        {
+          "key": "insertType",
+          "value": "1"
+        }
+      ]
+    }
+  ]
+}

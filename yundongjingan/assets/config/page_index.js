@@ -18,31 +18,18 @@
       hasFooterDivider: true,
       hasHeaderDivider: true,
       dividerHeight: 0,
-      dividerColor: "#EBEBEB",
-      data: [
-        {
-          viewType: "ListViewCellButton",
-          btnTitle: "你点我送",
-          btnType: "ok",
-          _type: "send"
-        }, {
-          viewType: "ListViewCellButton",
-          btnTitle: "赛事报名",
-          btnType: "ok",
-          _type: "signup"
-        }
-      ]
+      dividerColor: "#EBEBEB"
     };
 
     ECpageClass.prototype._constructor = function(_page_name1) {
       this._page_name = _page_name1;
       root = this;
       this.prepareForInitView();
-      $A().page().widget(this._page_name + "_ListViewBase_0").data(JSON.stringify(this._listview_data));
-      $A().page().widget(this._page_name + "_ListViewBase_0").onItemInnerClick(function(data) {
+      $A().page().widget(this._page_name + "_SatelliteWidget_0").data(JSON.stringify(this._listview_data));
+      $A().page().widget(this._page_name + "_SatelliteWidget_0").onItemInnerClick(function(data) {
         return root.onItemInnerClick(data);
       });
-      $A().page().widget(this._page_name + "_ListViewBase_0").onItemClick(function(data) {
+      $A().page().widget(this._page_name + "_SatelliteWidget_0").onItemClick(function(data) {
         return root.onItemClick(data);
       });
       return $A().page().onCreated(function() {
@@ -55,31 +42,54 @@
     }
 
     ECpageClass.prototype.onCreated = function() {
+      $A().app().netState().then(function(net_state) {
+        if (net_state === "offline") {
+          return $A().app().makeToast("没有网络");
+        } else {
+          return $A().page().setTimeout("3000").then(function() {
+            return $A().app().callApi({
+              method: "project/projects/detail",
+              cacheTime: 0
+            }).then(function(data) {
+              if (data.errors != null) {
+                if (data.errors[0].error_num != null) {
+                  return $A().app().makeToast("网络状态不好，请重新加载");
+                } else {
+                  return $A().app().makeToast("没有网络");
+                }
+              } else {
+                $A().app().preference({
+                  key: "net_version_num",
+                  value: data.version_num
+                });
+                $A().app().preference({
+                  key: "net_version_url",
+                  value: data.download_url
+                });
+                return $A().app().getAppVersion().then(function(version) {
+                  if (parseFloat(data.version_num) > parseFloat(version)) {
+                    if (data.description == null) {
+                      data.description = "";
+                    }
+                    return $A().app().confirmDownloadNewVersion({
+                      ok: "下载",
+                      data: data.description != null ? ("最新版本:" + data.version_num + "\n\n【更新内容】\n") + data.description : void 0
+                    });
+                  }
+                });
+              }
+            });
+          });
+        }
+      });
       if ((root._platform != null) && root._platform === "ios") {
-        return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
+        return $A().page().widget(this._page_name + "_SatelliteWidget_0").refreshData(JSON.stringify(this._listview_data));
       }
     };
 
     ECpageClass.prototype.onItemClick = function(data) {};
 
-    ECpageClass.prototype.onItemInnerClick = function(data) {
-      var item;
-      item = this._listview_data.data[data.position];
-      if ((item._type != null) && item._type === 'send') {
-        $A().app().openPage({
-          page_name: "page_tab_send",
-          params: [],
-          close_option: ""
-        });
-      }
-      if ((item._type != null) && item._type === 'signup') {
-        return $A().app().openPage({
-          page_name: "page_tab_signup",
-          params: [],
-          close_option: ""
-        });
-      }
-    };
+    ECpageClass.prototype.onItemInnerClick = function(data) {};
 
     ECpageClass.prototype.onResume = function() {};
 

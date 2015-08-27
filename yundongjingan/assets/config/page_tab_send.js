@@ -84,7 +84,8 @@
               },
               _leftLayoutSize: 75,
               centerBottomdes: "" + content.abstract,
-              content_id: "" + content.id
+              content_id: "" + content.id,
+              hasFooterDivider: "true"
             });
           }
           return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
@@ -95,13 +96,15 @@
     ECpageClass.prototype.onItemClick = function(data) {
       var item;
       item = this._listview_data.data[data.position];
-      return $A().app().openPage({
-        page_name: "page_send_info",
-        params: {
-          info: item.content_id
-        },
-        close_option: ""
-      });
+      if (item.content_id != null) {
+        return $A().app().openPage({
+          page_name: "page_send_info",
+          params: {
+            info: item.content_id
+          },
+          close_option: ""
+        });
+      }
     };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};
