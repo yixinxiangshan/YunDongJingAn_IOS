@@ -82,19 +82,19 @@
     ECLog(@"sphere %d selected", index);
     switch(index){
         case TAB_MAP:
-            [ECPageUtil openNewPage:@"page_empty" params:nil];
+            [ECPageUtil openNewPage:@"page_tab_map" params:nil];
             break;
         case TAB_COUPON:
-            [ECPageUtil openNewPage:@"page_tab_coupon" params:nil];
+            [ECPageUtil openNewPage:@"page_tab_cheerup" params:nil];
             break;
         case TAB_SIGNUP:
-            [ECPageUtil openNewPage:@"page_tab_activity" params:nil];
+            [ECPageUtil openNewPage:@"page_tab_news" params:nil];
             break;
         case TAB_SHIP:
             [ECPageUtil openNewPage:@"page_tab_send" params:nil];
             break;
         case TAB_ME:
-            [ECPageUtil openNewPage:@"page_my" params:nil];
+            [ECPageUtil openNewPage:@"page_tab_lesson_list" params:nil];
             break;
         default:
             [ECPageUtil openNewPage:@"page_empty" params:nil];
