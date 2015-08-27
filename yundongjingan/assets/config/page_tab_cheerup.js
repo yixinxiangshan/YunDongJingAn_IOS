@@ -23,7 +23,7 @@
         {
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
-          _leftLayoutSize: 0,
+          _leftLayoutSize: 75,
           centerTitle: "运动加油站",
           btnType: "ok",
           _type: "cheerup",
@@ -36,7 +36,7 @@
         }, {
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
-          _leftLayoutSize: 0,
+          _leftLayoutSize: 75,
           centerTitle: "场馆优惠",
           btnType: "ok",
           _type: "coupon",
