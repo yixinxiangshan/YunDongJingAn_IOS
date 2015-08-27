@@ -17,7 +17,7 @@
       pullable: false,
       hasFooterDivider: true,
       hasHeaderDivider: true,
-      dividerHeight: 0,
+      dividerHeight: 1,
       dividerColor: "#EBEBEB",
       data: [
         {
@@ -40,6 +40,9 @@
       $A().page().widget(this._page_name + "_ListViewBase_0").onItemClick(function(data) {
         return root.onItemClick(data);
       });
+      $A().page().widget("ActionBar").onItemClick(function(data) {
+        return root.onActionBarItemClick(data);
+      });
       return $A().page().onCreated(function() {
         return root.onCreated();
       });
@@ -49,40 +52,128 @@
       this._constructor(_page_name);
     }
 
+    ECpageClass.prototype.onActionBarItemClick = function(data) {
+      return $A().app().openPage({
+        page_name: "page_my",
+        params: {},
+        close_option: ""
+      });
+    };
+
     ECpageClass.prototype.onCreated = function() {
       if ((root._platform != null) && root._platform === "ios") {
         return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
       }
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
+    ECpageClass.prototype.onItemClick = function(data) {
+      var item;
+      item = this._listview_data.data[data.position];
+      if ((item._type != null) && item._type === 'comment') {
+        return $A().lrucache().get("phone").then(function(phone) {
+          if ((phone != null) && phone !== "") {
+            return $A().app().openPage({
+              page_name: "page_comment_list",
+              params: {
+                content_id: item.content_id
+              },
+              close_option: ""
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
+        });
+      }
+    };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
-      var content, item;
+      var item;
       item = this._listview_data.data[data.position];
       if ((item._type != null) && item._type === 'ok') {
-        content = {
-          content_id: item.content_id,
-          content_title: item.content_title
-        };
-        $A().app().openPage({
-          page_name: "page_signup_input",
-          params: {
-            info: JSON.stringify(content)
-          },
-          close_option: ""
+        $A().lrucache().get("phone").then(function(phone) {
+          var content;
+          if ((phone != null) && phone !== "") {
+            content = {
+              content_id: item.content_id,
+              content_title: item.content_title
+            };
+            return $A().app().openPage({
+              page_name: "page_signup_input",
+              params: {
+                info: JSON.stringify(content)
+              },
+              close_option: ""
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
         });
       }
       if ((item._type != null) && item._type === 'cancel') {
-        content = {
-          content_id: item.content_id
-        };
-        return $A().app().openPage({
-          page_name: "page_signup_list",
-          params: {
-            info: JSON.stringify(content)
-          },
-          close_option: ""
+        return $A().lrucache().get("phone").then(function(phone) {
+          var content;
+          if ((phone != null) && phone !== "") {
+            content = {
+              content_id: item.content_id
+            };
+            return $A().app().openPage({
+              page_name: "page_signup_list",
+              params: {
+                info: JSON.stringify(content)
+              },
+              close_option: ""
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
         });
       }
     };
@@ -123,6 +214,17 @@
               root._listview_data.data.push({
                 viewType: "ListViewCellArticle",
                 content: "" + data.content_info.content
+              });
+              root._listview_data.data.push({
+                viewType: "ListViewCellGroupTitle",
+                textTitle: "赛事评论"
+              });
+              root._listview_data.data.push({
+                viewType: "ListViewCellLine",
+                centerTitle: "查看所有评论",
+                content_id: "" + data.content_info.id,
+                _type: "comment",
+                hasFooterDivider: "true"
               });
               root._listview_data.data.push({
                 viewType: "ListViewCellButton",

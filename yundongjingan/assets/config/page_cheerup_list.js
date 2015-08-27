@@ -15,10 +15,10 @@
 
     ECpageClass.prototype._listview_data = {
       pullable: false,
-      hasFooterDivider: false,
-      hasHeaderDivider: false,
-      dividerHeight: 0,
-      dividerColor: "#cccccc",
+      hasFooterDivider: true,
+      hasHeaderDivider: true,
+      dividerHeight: 1,
+      dividerColor: "#EBEBEB",
       data: [
         {
           viewType: "ListViewCellLine",
@@ -28,6 +28,8 @@
         }
       ]
     };
+
+    ECpageClass.prototype._sort_id = "";
 
     ECpageClass.prototype._constructor = function(_page_name1) {
       this._page_name = _page_name1;
@@ -39,6 +41,9 @@
       });
       $A().page().widget(this._page_name + "_ListViewBase_0").onItemClick(function(data) {
         return root.onItemClick(data);
+      });
+      $A().page().widget("ActionBar").onItemClick(function(data) {
+        return root.onActionBarItemClick(data);
       });
       $A().page().onResume(function(data) {
         return root.onResume();
@@ -55,53 +60,57 @@
       this._constructor(_page_name);
     }
 
+    ECpageClass.prototype.onActionBarItemClick = function(data) {
+      return $A().app().openPage({
+        page_name: "page_my",
+        params: {},
+        close_option: ""
+      });
+    };
+
     ECpageClass.prototype.onCreated = function() {
-      return $A().page().param("info").then(function(info) {
-        return $A().app().callApi({
-          method: "content/coupons/index",
-          sort_id: 1038,
-          shop_content_id: info,
-          cacheTime: 0,
-          simple_result: true
-        }).then(function(data) {
-          var content, i, len, ref;
-          if (data.errors != null) {
-            if (data.errors[0].error_num != null) {
-              return $A().app().makeToast("网络状态不好，请重新加载");
-            } else {
-              return $A().app().makeToast("没有网络");
-            }
+      return $A().app().callApi({
+        method: "content/shops",
+        sort_id: 481,
+        cacheTime: 0
+      }).then(function(data) {
+        var content, i, len, ref;
+        if (data.errors != null) {
+          if (data.errors[0].error_num != null) {
+            return $A().app().makeToast("网络状态不好，请重新加载");
           } else {
+            return $A().app().makeToast("没有网络");
+          }
+        } else {
+          root._listview_data.data = [];
+          if (data.count === 0) {
             root._listview_data.data = [];
-            if (data.count === 0) {
-              root._listview_data.data = [];
+            root._listview_data.data.push({
+              viewType: "ListViewCellLine",
+              centerTitle: "暂无信息"
+            });
+            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+          } else {
+            ref = data.content_list;
+            for (i = 0, len = ref.length; i < len; i++) {
+              content = ref[i];
               root._listview_data.data.push({
                 viewType: "ListViewCellLine",
-                centerTitle: "暂无优惠"
+                centerTitle: "" + content.title,
+                leftImage: {
+                  imageType: "imageServer",
+                  imageSize: "middle",
+                  imageSrc: "" + content.image_cover_
+                },
+                _leftLayoutSize: 75,
+                centerBottomdes: "" + content.abstract,
+                content_id: "" + content.id,
+                hasFooterDivider: "true"
               });
-              return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
-            } else {
-              ref = data.content_list;
-              for (i = 0, len = ref.length; i < len; i++) {
-                content = ref[i];
-                root._listview_data.data.push({
-                  viewType: "ListViewCellLine",
-                  centerTitle: "" + content.title,
-                  leftImage: {
-                    imageType: "imageServer",
-                    imageSize: "middle",
-                    imageSrc: "" + content.image
-                  },
-                  _leftLayoutSize: 75,
-                  centerBottomdes: "" + content.abstract,
-                  content_id: "" + content.id,
-                  hasFooterDivider: "true"
-                });
-              }
-              return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
             }
+            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
           }
-        });
+        }
       });
     };
 
@@ -110,7 +119,7 @@
       item = this._listview_data.data[data.position];
       if (item.content_id != null) {
         return $A().app().openPage({
-          page_name: "page_coupon_info",
+          page_name: "page_cheerup_info",
           params: {
             info: item.content_id
           },
@@ -126,8 +135,11 @@
     ECpageClass.prototype.onResult = function(data) {};
 
     ECpageClass.prototype.prepareForInitView = function() {
-      return $A().app().platform().then(function(platform) {
+      $A().app().platform().then(function(platform) {
         return root._platform = platform;
+      });
+      return $A().page().param("sort_id").then(function(sort_id) {
+        return root._sort_id = sort_id;
       });
     };
 
@@ -135,6 +147,6 @@
 
   })();
 
-  Page = new ECpageClass("page_tab_coupon");
+  Page = new ECpageClass("page_cheerup_list");
 
 }).call(this);

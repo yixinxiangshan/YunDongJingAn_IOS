@@ -1,6 +1,6 @@
 {
-  "name": "page_tab_coupon",
-  "page_id": "page_tab_coupon",
+  "name": "page_tab_map",
+  "page_id": "page_tab_map",
   "glb_ctl_cfg": false,
   "datasource": {
     "method": "",
@@ -11,15 +11,15 @@
   "setEvent": [],
   "configs": [],
   "auto_start_controls": [
-    "page_tab_coupon_ListViewBase_0",
-    "page_tab_coupon_ActionBarWidget_0"
+    "page_tab_map_MapWidget_0",
+    "page_tab_map_ActionBarWidget_0"
   ],
   "position": [],
   "attr": [],
   "controls": [
     {
-      "control_id": "page_tab_coupon_ListViewBase_0",
-      "xtype": "ListViewBase",
+      "control_id": "page_tab_map_MapWidget_0",
+      "xtype": "MapWidget",
       "layout": "",
       "script": false,
       "datasource": {
@@ -36,7 +36,7 @@
       "position": [
         {
           "key": "parent",
-          "value": "activity_item_container_llayout"
+          "value": "blank_llayout"
         },
         {
           "key": "location",
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "control_id": "page_tab_coupon_ActionBarWidget_0",
+      "control_id": "page_tab_map_ActionBarWidget_0",
       "xtype": "ActionBarWidget",
       "layout": "",
       "datasource": {
@@ -59,8 +59,19 @@
         "data": {
           "actionBarBg": "#FFf9f9f9",
           "homeIcon": "webview/images/icon/default/actionbar_back.png",
-          "title": "场馆优惠",
-          "withActionBar": "true"
+          "title": "运动地图",
+          "withActionBar": "true",
+          "menuItemsData": {
+            "menuList": [
+              {
+                "itemId": "action_bar_menu_item_gen",
+                "clickTag": "1",
+                "title": "我的",
+                "iconName": "webview/images/icon/default/my.png",
+                "showAsAction": "always"
+              }
+            ]
+          }
         }
       },
       "setEvent": [],

@@ -60,7 +60,18 @@
           "actionBarBg": "#FFf9f9f9",
           "homeIcon": "webview/images/icon/default/actionbar_back.png",
           "title": "设置",
-          "withActionBar": "true"
+          "withActionBar": "true",
+          "menuItemsData": {
+            "menuList": [
+              {
+                "itemId": "action_bar_menu_item_gen",
+                "clickTag": "1",
+                "title": "我的",
+                "iconName": "webview/images/icon/default/my.png",
+                "showAsAction": "always"
+              }
+            ]
+          }
         }
       },
       "setEvent": [],

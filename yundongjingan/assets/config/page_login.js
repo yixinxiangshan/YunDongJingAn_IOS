@@ -17,7 +17,7 @@
       pullable: false,
       hasFooterDivider: true,
       hasHeaderDivider: true,
-      dividerHeight: 0,
+      dividerHeight: 1,
       dividerColor: "#EBEBEB",
       data: [
         {
@@ -56,6 +56,9 @@
       $A().page().widget(this._page_name + "_ListViewBase_0").onItemClick(function(data) {
         return root.onItemClick(data);
       });
+      $A().page().widget("ActionBar").onItemClick(function(data) {
+        return root.onActionBarItemClick(data);
+      });
       return $A().page().onCreated(function() {
         return root.onCreated();
       });
@@ -69,6 +72,14 @@
       if ((root._platform != null) && root._platform === "ios") {
         return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
       }
+    };
+
+    ECpageClass.prototype.onActionBarItemClick = function(data) {
+      return $A().app().openPage({
+        page_name: "page_my",
+        params: {},
+        close_option: ""
+      });
     };
 
     ECpageClass.prototype.onItemClick = function(data) {};

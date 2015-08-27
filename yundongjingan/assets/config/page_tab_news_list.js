@@ -15,10 +15,10 @@
 
     ECpageClass.prototype._listview_data = {
       pullable: false,
-      hasFooterDivider: false,
-      hasHeaderDivider: false,
-      dividerHeight: 0,
-      dividerColor: "#cccccc",
+      hasFooterDivider: true,
+      hasHeaderDivider: true,
+      dividerHeight: 1,
+      dividerColor: "#EBEBEB",
       data: [
         {
           viewType: "ListViewCellLine",
@@ -42,6 +42,9 @@
       $A().page().widget(this._page_name + "_ListViewBase_0").onItemClick(function(data) {
         return root.onItemClick(data);
       });
+      $A().page().widget("ActionBar").onItemClick(function(data) {
+        return root.onActionBarItemClick(data);
+      });
       $A().page().onResume(function(data) {
         return root.onResume();
       });
@@ -56,6 +59,14 @@
     function ECpageClass(_page_name) {
       this._constructor(_page_name);
     }
+
+    ECpageClass.prototype.onActionBarItemClick = function(data) {
+      return $A().app().openPage({
+        page_name: "page_my",
+        params: {},
+        close_option: ""
+      });
+    };
 
     ECpageClass.prototype.onCreated = function() {
       return $A().app().callApi({
@@ -73,24 +84,33 @@
           }
         } else {
           root._listview_data.data = [];
-          ref = data.content_list;
-          for (i = 0, len = ref.length; i < len; i++) {
-            content = ref[i];
+          if (data.count === 0) {
+            root._listview_data.data = [];
             root._listview_data.data.push({
               viewType: "ListViewCellLine",
-              centerTitle: "" + content.title,
-              leftImage: {
-                imageType: "imageServer",
-                imageSize: "middle",
-                imageSrc: "" + content.image
-              },
-              _leftLayoutSize: 75,
-              centerBottomdes: "" + content.abstract,
-              content_id: "" + content.id,
-              hasFooterDivider: "true"
+              centerTitle: "暂无信息"
             });
+            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+          } else {
+            ref = data.content_list;
+            for (i = 0, len = ref.length; i < len; i++) {
+              content = ref[i];
+              root._listview_data.data.push({
+                viewType: "ListViewCellLine",
+                centerTitle: "" + content.title,
+                leftImage: {
+                  imageType: "imageServer",
+                  imageSize: "middle",
+                  imageSrc: "" + content.image
+                },
+                _leftLayoutSize: 75,
+                centerBottomdes: "" + content.abstract,
+                content_id: "" + content.id,
+                hasFooterDivider: "true"
+              });
+            }
+            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
           }
-          return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
         }
       });
     };

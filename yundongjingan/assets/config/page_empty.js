@@ -17,7 +17,7 @@
       pullable: false,
       hasFooterDivider: true,
       hasHeaderDivider: true,
-      dividerHeight: 0,
+      dividerHeight: 1,
       dividerColor: "#EBEBEB",
       data: [
         {

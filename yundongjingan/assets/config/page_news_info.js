@@ -17,7 +17,7 @@
       pullable: false,
       hasFooterDivider: true,
       hasHeaderDivider: true,
-      dividerHeight: 0,
+      dividerHeight: 1,
       dividerColor: "#EBEBEB",
       data: [
         {
@@ -40,6 +40,9 @@
       $A().page().widget(this._page_name + "_ListViewBase_0").onItemClick(function(data) {
         return root.onItemClick(data);
       });
+      $A().page().widget("ActionBar").onItemClick(function(data) {
+        return root.onActionBarItemClick(data);
+      });
       return $A().page().onCreated(function() {
         return root.onCreated();
       });
@@ -48,6 +51,14 @@
     function ECpageClass(_page_name) {
       this._constructor(_page_name);
     }
+
+    ECpageClass.prototype.onActionBarItemClick = function(data) {
+      return $A().app().openPage({
+        page_name: "page_my",
+        params: {},
+        close_option: ""
+      });
+    };
 
     ECpageClass.prototype.onCreated = function() {
       if ((root._platform != null) && root._platform === "ios") {

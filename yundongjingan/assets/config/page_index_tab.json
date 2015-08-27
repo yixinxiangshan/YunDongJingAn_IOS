@@ -1,0 +1,114 @@
+{
+  "name": "page_index_tab",
+  "page_id": "page_index_tab",
+  "page_layout": "",
+  "datasource": {
+    "method": "",
+    "data": "",
+    "params": [],
+    "adapter": []
+  },
+  "setEvent": [],
+  "configs": [
+    {
+      "key": "name",
+      "value": "",
+      "defaultValue": "null"
+    },
+    {
+      "key": "page_level",
+      "value": "activity",
+      "defaultValue": "null"
+    },
+    {
+      "key": "isGuide",
+      "value": "false",
+      "defaultValue": "null"
+    }
+  ],
+  "auto_start_controls": [
+    "page_actionBar",
+    "index_tab_tabHost"
+  ],
+  "controls": [
+    {
+      "control_id": "index_tab_tabHost",
+      "xtype": "TabWidget",
+      "layout": "",
+      "datasource": {
+        "method": "http://abc/",
+        "data": {
+          "tabDataList": [
+            {
+              "title": "运动地图",
+              "icon": "webview/images/icon/default/ic_1.png",
+              "fragmentName": "ItemFragment",
+              "fragmentString": "page_tab_map",
+              "tag": "page_tab_map"
+            },
+            {
+              "title": "场馆预定",
+              "icon": "webview/images/icon/default/ic_2.png",
+              "fragmentName": "ItemFragment",
+              "fragmentString": "page_tab_cheerup",
+              "tag": "page_tab_cheerup"
+            },
+            {
+              "title": "赛事活动",
+              "icon": "webview/images/icon/default/ic_3.png",
+              "fragmentName": "ItemFragment",
+              "fragmentString": "page_tab_news",
+              "tag": "page_tab_news"
+            },
+            {
+              "title": "体育配送",
+              "icon": "webview/images/icon/default/ic_4.png",
+              "fragmentName": "ItemFragment",
+              "fragmentString": "page_tab_send",
+              "tag": "page_tab_send"
+            },
+            {
+              "title": "运动课程",
+              "icon": "webview/images/icon/default/ic_5.png",
+              "fragmentName": "ItemFragment",
+              "fragmentString": "page_tab_lesson_list",
+              "tag": "page_tab_lesson_list"
+            }
+          ],
+          "badgeDataList": [
+            {
+              "text": "1",
+              "positon": "1"
+            },
+            {
+              "text": "3",
+              "positon": "3"
+            }
+          ]
+        },
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [],
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_container_llayout",
+          "defaultValue": "null"
+        },
+        {
+          "key": "location",
+          "value": "0",
+          "defaultValue": "null"
+        },
+        {
+          "key": "insertType",
+          "value": "1",
+          "defaultValue": "null"
+        }
+      ],
+      "attr": [],
+      "configs": []
+    }
+  ]
+}

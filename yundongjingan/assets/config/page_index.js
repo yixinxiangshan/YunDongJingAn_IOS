@@ -17,9 +17,11 @@
       pullable: false,
       hasFooterDivider: true,
       hasHeaderDivider: true,
-      dividerHeight: 0,
+      dividerHeight: 1,
       dividerColor: "#EBEBEB"
     };
+
+    ECpageClass.prototype._isOnline = true;
 
     ECpageClass.prototype._constructor = function(_page_name1) {
       this._page_name = _page_name1;
@@ -44,6 +46,7 @@
     ECpageClass.prototype.onCreated = function() {
       $A().app().netState().then(function(net_state) {
         if (net_state === "offline") {
+          root._isOnline = false;
           return $A().app().makeToast("没有网络");
         } else {
           return $A().page().setTimeout("3000").then(function() {
@@ -52,6 +55,7 @@
               cacheTime: 0
             }).then(function(data) {
               if (data.errors != null) {
+                root._isOnline = false;
                 if (data.errors[0].error_num != null) {
                   return $A().app().makeToast("网络状态不好，请重新加载");
                 } else {
@@ -87,7 +91,17 @@
       }
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
+    ECpageClass.prototype.onItemClick = function(data) {
+      if (root._isOnline) {
+        return $A().app().openPage({
+          page_name: "page_index_tab",
+          params: data.id,
+          close_option: ""
+        });
+      } else {
+        return $A().app().makeToast("无法连接服务器，请检查网络状况，并重新启动应用");
+      }
+    };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};
 

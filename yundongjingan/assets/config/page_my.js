@@ -16,7 +16,7 @@
     ECpageClass.prototype._listview_data = {
       pullable: false,
       hasFooterDivider: true,
-      hasHeaderDivider: false,
+      hasHeaderDivider: true,
       dividerHeight: 1,
       dividerColor: "#EBEBEB",
       data: [
@@ -31,6 +31,57 @@
             imageSrc: "webview/images/icon/default/listview_right.png"
           },
           name: "mycenter",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellGroupTitle",
+          textTitle: "我的课程"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "我的已申请课程",
+          name: "lesson",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "我的运动记录",
+          name: "activity",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellGroupTitle",
+          textTitle: "我的订单"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "我的场馆优惠",
+          name: "coupon",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "我的赛事报名",
+          name: "signup",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "我的你点我送",
+          name: "send",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellGroupTitle",
+          textTitle: "其他"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "扫一扫",
+          name: "scan",
           hasFooterDivider: "true"
         }, {
           viewType: "ListViewCellLine",
@@ -103,6 +154,164 @@
             params: {},
             close_option: ""
           });
+        case "lesson":
+          return $A().lrucache().get("phone").then(function(phone) {
+            if ((phone != null) && phone !== "") {
+              return $A().app().openPage({
+                page_name: "page_mycoupon_list",
+                params: {
+                  info: 528
+                },
+                close_option: ""
+              });
+            } else {
+              return $A().app().showConfirm({
+                ok: "登陆",
+                cancel: "取消",
+                title: "警告",
+                message: "您尚未登陆，请先登陆"
+              }).then(function(data) {
+                if (data.state === "ok") {
+                  $A().app().openPage({
+                    page_name: "page_login",
+                    params: {},
+                    close_option: ""
+                  });
+                }
+                if (data.state === "cancel") {
+                  return false;
+                }
+              });
+            }
+          });
+        case "activity":
+          return $A().lrucache().get("phone").then(function(phone) {
+            if ((phone != null) && phone !== "") {
+              return $A().app().openPage({
+                page_name: "page_activity_list",
+                params: {},
+                close_option: ""
+              });
+            } else {
+              return $A().app().showConfirm({
+                ok: "登陆",
+                cancel: "取消",
+                title: "警告",
+                message: "您尚未登陆，请先登陆"
+              }).then(function(data) {
+                if (data.state === "ok") {
+                  $A().app().openPage({
+                    page_name: "page_login",
+                    params: {},
+                    close_option: ""
+                  });
+                }
+                if (data.state === "cancel") {
+                  return false;
+                }
+              });
+            }
+          });
+        case "coupon":
+          return $A().lrucache().get("phone").then(function(phone) {
+            if ((phone != null) && phone !== "") {
+              return $A().app().openPage({
+                page_name: "page_mycoupon_list",
+                params: {
+                  info: 1038
+                },
+                close_option: ""
+              });
+            } else {
+              return $A().app().showConfirm({
+                ok: "登陆",
+                cancel: "取消",
+                title: "警告",
+                message: "您尚未登陆，请先登陆"
+              }).then(function(data) {
+                if (data.state === "ok") {
+                  $A().app().openPage({
+                    page_name: "page_login",
+                    params: {},
+                    close_option: ""
+                  });
+                }
+                if (data.state === "cancel") {
+                  return false;
+                }
+              });
+            }
+          });
+        case "signup":
+          return $A().lrucache().get("phone").then(function(phone) {
+            var content;
+            if ((phone != null) && phone !== "") {
+              content = {
+                content_id: item.content_id
+              };
+              return $A().app().openPage({
+                page_name: "page_signup_list",
+                params: {
+                  info: JSON.stringify(content)
+                },
+                close_option: ""
+              });
+            } else {
+              return $A().app().showConfirm({
+                ok: "登陆",
+                cancel: "取消",
+                title: "警告",
+                message: "您尚未登陆，请先登陆"
+              }).then(function(data) {
+                if (data.state === "ok") {
+                  $A().app().openPage({
+                    page_name: "page_login",
+                    params: {},
+                    close_option: ""
+                  });
+                }
+                if (data.state === "cancel") {
+                  return false;
+                }
+              });
+            }
+          });
+        case "send":
+          return $A().lrucache().get("phone").then(function(phone) {
+            var content;
+            if ((phone != null) && phone !== "") {
+              content = {
+                content_id: ""
+              };
+              return $A().app().openPage({
+                page_name: "page_send_list",
+                params: {
+                  info: JSON.stringify(content)
+                },
+                close_option: ""
+              });
+            } else {
+              return $A().app().showConfirm({
+                ok: "登陆",
+                cancel: "取消",
+                title: "警告",
+                message: "您尚未登陆，请先登陆"
+              }).then(function(data) {
+                if (data.state === "ok") {
+                  $A().app().openPage({
+                    page_name: "page_login",
+                    params: {},
+                    close_option: ""
+                  });
+                }
+                if (data.state === "cancel") {
+                  return false;
+                }
+              });
+            }
+          });
+        case "scan":
+          return $A().page("page_my").openQRCapture({});
       }
     };
 

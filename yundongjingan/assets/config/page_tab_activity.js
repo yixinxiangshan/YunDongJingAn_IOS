@@ -17,19 +17,35 @@
       pullable: false,
       hasFooterDivider: true,
       hasHeaderDivider: true,
-      dividerHeight: 0,
+      dividerHeight: 1,
       dividerColor: "#EBEBEB",
       data: [
         {
-          viewType: "ListViewCellButton",
-          btnTitle: "赛事报名",
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "赛事报名",
           btnType: "ok",
-          _type: "signup"
+          _type: "signup",
+          hasFooterDivider: "true",
+          leftImage: {
+            imageType: "imageServer",
+            imageSize: "middle",
+            imageSrc: "3013414.png"
+          }
         }, {
-          viewType: "ListViewCellButton",
-          btnTitle: "信息发布",
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "信息发布",
           btnType: "ok",
-          _type: "news"
+          _type: "news",
+          hasFooterDivider: "true",
+          leftImage: {
+            imageType: "imageServer",
+            imageSize: "middle",
+            imageSrc: "3013665.jpg"
+          }
         }
       ]
     };
@@ -45,6 +61,9 @@
       $A().page().widget(this._page_name + "_ListViewBase_0").onItemClick(function(data) {
         return root.onItemClick(data);
       });
+      $A().page().widget("ActionBar").onItemClick(function(data) {
+        return root.onActionBarItemClick(data);
+      });
       return $A().page().onCreated(function() {
         return root.onCreated();
       });
@@ -54,15 +73,21 @@
       this._constructor(_page_name);
     }
 
+    ECpageClass.prototype.onActionBarItemClick = function(data) {
+      return $A().app().openPage({
+        page_name: "page_my",
+        params: {},
+        close_option: ""
+      });
+    };
+
     ECpageClass.prototype.onCreated = function() {
       if ((root._platform != null) && root._platform === "ios") {
         return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
       }
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
-
-    ECpageClass.prototype.onItemInnerClick = function(data) {
+    ECpageClass.prototype.onItemClick = function(data) {
       var item;
       item = this._listview_data.data[data.position];
       if ((item._type != null) && item._type === 'signup') {
@@ -79,6 +104,8 @@
         });
       }
     };
+
+    ECpageClass.prototype.onItemInnerClick = function(data) {};
 
     ECpageClass.prototype.onResume = function() {};
 

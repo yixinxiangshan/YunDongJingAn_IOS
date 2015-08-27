@@ -19,7 +19,7 @@
   "controls": [
     {
       "control_id": "page_tab_news_ListViewBase_0",
-      "xtype": "ListViewBase",
+      "xtype": "LayoutButtonWidget",
       "layout": "",
       "script": false,
       "datasource": {
@@ -27,7 +27,50 @@
         "cache": "",
         "params": [],
         "adapter": [],
-        "data": {}
+        "data": {
+          "tabDataList": [
+            {
+              "id": "524",
+              "title": "赛事报名",
+              "icon": "page_fragment_jingan_itembg_jianshen"
+            },
+            {
+              "id": "519",
+              "title": "最新消息",
+              "icon": "page_fragment_jingan_itembg_zuixin"
+            },
+            {
+              "id": "520",
+              "title": "主题活动",
+              "icon": "page_fragment_jingan_itembg_huodong"
+            },
+            {
+              "id": "521",
+              "icon": "page_fragment_jingan_itembg_tese",
+              "title": "楼宇特色"
+            },
+            {
+              "id": "522",
+              "title": "静安体彩",
+              "icon": "page_fragment_jingan_itembg_ticai"
+            },
+            {
+              "id": "523",
+              "title": "竞技体育",
+              "icon": "page_fragment_jingan_itembg_tiyu"
+            },
+            {
+              "id": "524",
+              "title": "公共体育",
+              "icon": "page_fragment_jingan_itembg_zuixinggty"
+            },
+            {
+              "id": "524",
+              "title": "其他",
+              "icon": "page_fragment_jingan_itembg_qita"
+            }
+          ]
+        }
       },
       "setEvent": [],
       "configs": [],
@@ -36,7 +79,7 @@
       "position": [
         {
           "key": "parent",
-          "value": "activity_item_container_llayout"
+          "value": "blank_llayout"
         },
         {
           "key": "location",
@@ -59,8 +102,19 @@
         "data": {
           "actionBarBg": "#FFf9f9f9",
           "homeIcon": "webview/images/icon/default/actionbar_back.png",
-          "title": "信息发布",
-          "withActionBar": "true"
+          "title": "赛事活动",
+          "withActionBar": "true",
+          "menuItemsData": {
+            "menuList": [
+              {
+                "itemId": "action_bar_menu_item_gen",
+                "clickTag": "3",
+                "title": "我的",
+                "iconName": "webview/images/icon/default/my.png",
+                "showAsAction": "always"
+              }
+            ]
+          }
         }
       },
       "setEvent": [],
