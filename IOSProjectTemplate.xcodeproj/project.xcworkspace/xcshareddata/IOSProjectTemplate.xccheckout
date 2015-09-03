@@ -7,20 +7,16 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B083A257-DDEC-4865-8759-E255DC309B3B</string>
 	<key>IDESourceControlProjectName</key>
-	<string>IOSProjectTemplate</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>89B6BA1A3C37DEA23E2D17517EA0ED3F25D4D6C3</key>
-		<string>192.168.100.53:ios/kangfuzhushou-ios.git</string>
 		<key>C736AFA250B75A1465784C0DAC0191336A8E9E19</key>
 		<string>https://github.com/yixinxiangshan/YunDongJingAn_IOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>IOSProjectTemplate.xcodeproj</string>
+	<string>IOSProjectTemplate.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>89B6BA1A3C37DEA23E2D17517EA0ED3F25D4D6C3</key>
-		<string>../../../kangfuzhushou-ios</string>
 		<key>C736AFA250B75A1465784C0DAC0191336A8E9E19</key>
 		<string>../..</string>
 	</dict>
@@ -32,14 +28,6 @@
 	<string>C736AFA250B75A1465784C0DAC0191336A8E9E19</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>89B6BA1A3C37DEA23E2D17517EA0ED3F25D4D6C3</string>
-			<key>IDESourceControlWCCName</key>
-			<string>kangfuzhushou-ios</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
