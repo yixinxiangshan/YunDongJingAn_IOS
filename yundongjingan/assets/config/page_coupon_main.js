@@ -23,7 +23,7 @@
         {
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
-          _leftLayoutSize: 0,
+          _leftLayoutSize: 75,
           centerTitle: "静安游泳馆",
           _type: "43581",
           leftImage: {
@@ -35,7 +35,7 @@
         }, {
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
-          _leftLayoutSize: 0,
+          _leftLayoutSize: 75,
           centerTitle: "静安体育馆",
           _type: "13502",
           leftImage: {
@@ -47,7 +47,7 @@
         }, {
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
-          _leftLayoutSize: 0,
+          _leftLayoutSize: 75,
           centerTitle: "其他",
           _type: "0",
           leftImage: {
