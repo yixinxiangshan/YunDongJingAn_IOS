@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,11 +12,11 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="N1z-WC-eef">
-                    <rect key="frame" x="70" y="20" width="60" height="88"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="190" y="20" width="60" height="88"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="最新消息" image="静安-34.png">
+                    <state key="normal" title="最新消息" image="静安-34">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -29,11 +29,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="c5o-dq-ff5">
-                    <rect key="frame" x="190" y="20" width="60" height="88"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="70" y="116" width="60" height="88"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="主题活动" image="静安-35.png">
+                    <state key="normal" title="主题活动" image="静安-35">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -46,11 +46,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="HCK-7r-QwB">
-                    <rect key="frame" x="70" y="116" width="60" height="88"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="190" y="116" width="60" height="88"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="楼宇特色" image="静安-36.png">
+                    <state key="normal" title="楼宇特色" image="静安-36">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -63,11 +63,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="c1X-ab-lxl">
-                    <rect key="frame" x="190" y="116" width="60" height="88"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="70" y="212" width="60" height="88"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="静安体彩" image="静安-37.png">
+                    <state key="normal" title="静安体彩" image="静安-37">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -79,29 +79,12 @@
                         <action selector="UIControlEventTouchUpInside:" destination="-1" eventType="touchUpInside" id="nYA-fV-hCI"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="ed5-tG-rci">
-                    <rect key="frame" x="70" y="212" width="60" height="88"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="竞技体育" image="静安-38.png">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="url" value="ecct://listview?configName=ECNewsListConfig"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ID" value="523"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="UIControlEventTouchUpInside:" destination="-1" eventType="touchUpInside" id="jFb-O7-KqJ"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="FDA-hw-yxT">
-                    <rect key="frame" x="190" y="212" width="60" height="88"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="70" y="308" width="60" height="88"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="公共体育" image="静安-39.png">
+                    <state key="normal" title="公共体育" image="静安-39">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -114,17 +97,17 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="cMd-Sg-4BC">
-                    <rect key="frame" x="70" y="308" width="60" height="88"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="70" y="20" width="60" height="88"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="静安健身" image="静安-40.png">
+                    <state key="normal" title="赛事报名" image="静安-40">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="url" value="http://tyj.jingan.gov.cn"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="ID" value=""/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="url" value="page_tab_signup"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ID" value="0"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="UIControlEventTouchUpInside:" destination="-1" eventType="touchUpInside" id="rgx-76-66g"/>
@@ -132,10 +115,10 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="nvr-Td-P38">
                     <rect key="frame" x="190" y="308" width="60" height="88"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="其他" image="静安-41.png">
+                    <state key="normal" title="其他" image="静安-41">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -147,8 +130,26 @@
                         <action selector="UIControlEventTouchUpInside:" destination="-1" eventType="touchUpInside" id="jK4-qK-kKk"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="ed5-tG-rci">
+                    <rect key="frame" x="190" y="212" width="60" height="88"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <inset key="titleEdgeInsets" minX="-60" minY="66" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="竞技体育" image="静安-38">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="url" value="ecct://listview?configName=ECNewsListConfig"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ID" value="523"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="UIControlEventTouchUpInside:" destination="-1" eventType="touchUpInside" id="jFb-O7-KqJ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
@@ -158,13 +159,18 @@
         </scrollView>
     </objects>
     <resources>
-        <image name="静安-34.png" width="60" height="60"/>
-        <image name="静安-35.png" width="60" height="60"/>
-        <image name="静安-36.png" width="60" height="60"/>
-        <image name="静安-37.png" width="60" height="60"/>
-        <image name="静安-38.png" width="60" height="60"/>
-        <image name="静安-39.png" width="60" height="60"/>
-        <image name="静安-40.png" width="60" height="60"/>
-        <image name="静安-41.png" width="60" height="60"/>
+        <image name="静安-34" width="60" height="60"/>
+        <image name="静安-35" width="60" height="60"/>
+        <image name="静安-36" width="60" height="60"/>
+        <image name="静安-37" width="60" height="60"/>
+        <image name="静安-38" width="60" height="60"/>
+        <image name="静安-39" width="60" height="60"/>
+        <image name="静安-40" width="60" height="60"/>
+        <image name="静安-41" width="60" height="60"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

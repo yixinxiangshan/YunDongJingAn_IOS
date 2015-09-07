@@ -150,8 +150,8 @@
                 if(_menuList.count == 1 && [showAsAction isEqual:@"always" ])
                 {
                     //show the icon on the navigation bar
-                    ECButton* button = [self customButton:iconImage highLightImage:nil title:[itemConfig objectForKey:@"title"] clickTitle:nil action:@selector(goToMe:)];
-                    button.title = @"";
+                    ECButton* button = [self customButton:iconImage highLightImage:nil title:nil clickTitle:nil action:@selector(goToMe:)];
+                    //button.title = @"";
                     button.viewId = [itemConfig objectForKey:@"clickTag"];
                     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
                     _nowController.navigationItem.rightBarButtonItem = barButtonItem;
