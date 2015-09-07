@@ -62,7 +62,7 @@
 - (void) setdata
 {
     [super setdata];
-    //    NSLog(@"ECActionBarWidget setdata width1: %@" , self.configDic);
+    // ECLog(@"ECActionBarWidget setdata : %@" , self.configDic);
     _withActionBar = [[self.dataDic objectForKey:@"withActionBar"] boolValue];
     
     _withHomeItem = [[self.dataDic objectForKey:@"withHomeItem"] boolValue];
@@ -97,7 +97,7 @@
     //设置是否隐藏,
     [_navController setNavigationBarHidden:!_withActionBar];
     //设置title
-    //    NSLog(@"ECActionBarWidget updateActionBar width1: %@" , _navTitle);
+    //ECLog(@"ECActionBarWidget updateActionBar width1: %@" , _navTitle);
     [self setTitle:_navTitle];
     //设置背景
     [_navController.navigationBar setBackgroundImage:[self parseBackgroundImage] forBarMetrics:UIBarMetricsDefault];
@@ -141,29 +141,45 @@
                 NSDictionary* itemConfig = [_menuList objectAtIndex:i];
                 NSString* iconName = [NSString stringWithFormat:@"%@",[itemConfig objectForKey:@"iconName"]];
                 UIImage *iconImage = [UIImage imageWithPath:iconName];
+                NSString *showAsAction = [itemConfig objectForKey:@"showAsAction"];
                 
                 if (!iconImage) {
                     //                    ECLog(@"image for name %@ is not exist .",iconName);
                     iconImage = [ECImageUtil imageWithUIColor:[UIColor grayColor]];
                 }
-                ECButton* menuListItem = [self customButton:iconImage highLightImage:nil title:[itemConfig objectForKey:@"title"] clickTitle:nil action:@selector(menuListItemClicked:)];
-                menuListItem.title = [itemConfig objectForKey:@"title"];
-                menuListItem.viewId = [itemConfig objectForKey:@"itemId"];
-                menuListItem.tag = i;
-                [_rightItemView addSubview:menuListItem];
+                if(_menuList.count == 1 && [showAsAction isEqual:@"always" ])
+                {
+                    //show the icon on the navigation bar
+                    ECButton* button = [self customButton:iconImage highLightImage:nil title:[itemConfig objectForKey:@"title"] clickTitle:nil action:@selector(goToMe:)];
+                    button.title = @"";
+                    button.viewId = [itemConfig objectForKey:@"clickTag"];
+                    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+                    _nowController.navigationItem.rightBarButtonItem = barButtonItem;
+                }
+                else
+                {
+                    ECButton* menuListItem = [self customButton:iconImage highLightImage:nil title:[itemConfig objectForKey:@"title"] clickTitle:nil action:@selector(menuListItemClicked:)];
+                    menuListItem.title = [itemConfig objectForKey:@"title"];
+                    menuListItem.viewId = [itemConfig objectForKey:@"itemId"];
+                    menuListItem.tag = i;
+                    [_rightItemView addSubview:menuListItem];
+                }
             }
             //            NSString* defaultTitle = [[_navTagList objectAtIndex:[[_navTagData objectForKey:@"selectedItem"] integerValue]] objectForKey:@"title"];
             //            _navPopMenu = [self customButton:[UIImage imageWithPath:@"webview/images/icon/default/widget_actionbar_button_overflow.png"] highLightImage:nil title:nil clickTitle:nil action:@selector(popMenu:)];
             //            [_rightItemView addSubview:_navPopMenu];
             //            设置带颜色的btn
-            UIImage *menuImage=[UIImage imageWithPath:@"webview/images/icon/default/widget_actionbar_button_overflow.png"];
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.bounds = CGRectMake( 0, 0, menuImage.size.width, menuImage.size.height );
-            [button setImage:menuImage forState:UIControlStateNormal];
-            [button addTarget:self action:@selector(popMenu:) forControlEvents:UIControlEventTouchUpInside];
-            UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-            //            barbtn.image=menuImage;
-            _nowController.navigationItem.rightBarButtonItem = barButtonItem;
+            if(_menuList.count > 1)
+            {
+                UIImage *menuImage=[UIImage imageWithPath:@"webview/images/icon/default/widget_actionbar_button_overflow.png"];
+                UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+                button.bounds = CGRectMake( 0, 0, menuImage.size.width, menuImage.size.height );
+                [button setImage:menuImage forState:UIControlStateNormal];
+                [button addTarget:self action:@selector(popMenu:) forControlEvents:UIControlEventTouchUpInside];
+                UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+                //            barbtn.image=menuImage;
+                _nowController.navigationItem.rightBarButtonItem = barButtonItem;
+            }
         }
     }
     if (_rightItemView.subviews.count == 0) {
@@ -230,6 +246,11 @@
         [ECPageUtil closeNowPage:@""];
         // [_nowController.navigationController popViewControllerAnimated:YES];
     }
+}
+- (void) goToMe:(ECButton *)sender
+{
+    //ECLog(@"go to me... %@", sender.viewId);
+    [self.pageContext dispatchJSEvetn:[NSString stringWithFormat:@"ActionBar.%@",kOnItemClick] withParams:sender.viewId];
 }
 #pragma popMenu
 - (void) popMenu:(ECButton *)sender

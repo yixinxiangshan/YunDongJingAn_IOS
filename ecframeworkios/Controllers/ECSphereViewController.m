@@ -10,6 +10,9 @@
 #import "SphereMenuWidget.h"
 #import "Constants.h"
 #import "ECPageUtil.h"
+#import "ECBaseViewController.h"
+#import "ECNewsViewController.h"
+#import "ECAppUtil.h"
 
 @interface ECSphereViewController () <SphereMenuDelegate>
 
@@ -88,8 +91,13 @@
             [ECPageUtil openNewPage:@"page_tab_cheerup" params:nil];
             break;
         case TAB_SIGNUP:
-            [ECPageUtil openNewPage:@"page_tab_news" params:nil];
+        {
+            ECNewsViewController *news = [[ECNewsViewController alloc] init];
+            //[ECPageUtil openNewPage:@"page_tab_news" params:nil];
+            ECBaseViewController* nowController = [[ECAppUtil shareInstance]getNowController];
+            [[nowController navigationController] pushViewController:news animated:YES];
             break;
+        }
         case TAB_SHIP:
             [ECPageUtil openNewPage:@"page_tab_send" params:nil];
             break;

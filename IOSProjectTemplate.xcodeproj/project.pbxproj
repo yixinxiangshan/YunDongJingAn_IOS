@@ -29,6 +29,9 @@
 		0FC57C641AF9053A008377EF /* ListViewCellArticle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57C621AF9053A008377EF /* ListViewCellArticle.xib */; };
 		0FE067B71B1445190028886B /* SphereMenuWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE067B61B1445190028886B /* SphereMenuWidget.m */; };
 		0FE067BA1B144F010028886B /* ECSphereViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE067B91B144F010028886B /* ECSphereViewController.m */; };
+		0FECBC6F1B98218500D16FB7 /* NewsLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FECBC6E1B98218500D16FB7 /* NewsLayout.xib */; };
+		0FECBC721B9855A100D16FB7 /* ECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FECBC711B9855A100D16FB7 /* ECNewsViewController.m */; };
+		0FECBC751B98844600D16FB7 /* UCUIControlEventProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FECBC741B98844600D16FB7 /* UCUIControlEventProtocol.m */; };
 		0FEE566D1B23E8FB00CD0CF6 /* background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEE56661B23E8FB00CD0CF6 /* background-568h@2x.png */; };
 		0FEE566E1B23E8FB00CD0CF6 /* background-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEE56671B23E8FB00CD0CF6 /* background-667h@2x.png */; };
 		0FEE566F1B23E8FB00CD0CF6 /* background-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEE56681B23E8FB00CD0CF6 /* background-Portrait-736h@3x.png */; };
@@ -518,6 +521,11 @@
 		0FE067B61B1445190028886B /* SphereMenuWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SphereMenuWidget.m; path = ../views/SphereMenuWidget.m; sourceTree = "<group>"; };
 		0FE067B81B144F010028886B /* ECSphereViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSphereViewController.h; sourceTree = "<group>"; };
 		0FE067B91B144F010028886B /* ECSphereViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSphereViewController.m; sourceTree = "<group>"; };
+		0FECBC6E1B98218500D16FB7 /* NewsLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsLayout.xib; path = ../views/NewsLayout.xib; sourceTree = "<group>"; };
+		0FECBC701B98557500D16FB7 /* ECNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECNewsViewController.h; sourceTree = "<group>"; };
+		0FECBC711B9855A100D16FB7 /* ECNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECNewsViewController.m; sourceTree = "<group>"; };
+		0FECBC731B98844600D16FB7 /* UCUIControlEventProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCUIControlEventProtocol.h; sourceTree = "<group>"; };
+		0FECBC741B98844600D16FB7 /* UCUIControlEventProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCUIControlEventProtocol.m; sourceTree = "<group>"; };
 		0FEE56661B23E8FB00CD0CF6 /* background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-568h@2x.png"; sourceTree = "<group>"; };
 		0FEE56671B23E8FB00CD0CF6 /* background-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-667h@2x.png"; sourceTree = "<group>"; };
 		0FEE56681B23E8FB00CD0CF6 /* background-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-Portrait-736h@3x.png"; sourceTree = "<group>"; };
@@ -2004,6 +2012,7 @@
 		A145C99E18D83D5E00B78AD8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0FECBC6E1B98218500D16FB7 /* NewsLayout.xib */,
 				0FE067B81B144F010028886B /* ECSphereViewController.h */,
 				0FE067B91B144F010028886B /* ECSphereViewController.m */,
 				637C6E641A00CDC3003FB4C3 /* ICViewPager */,
@@ -2015,6 +2024,8 @@
 				A145CC8B18D840CA00B78AD8 /* ECDebugViewController.h */,
 				A145CC8E18D8411600B78AD8 /* ECDebugViewController.m */,
 				A145CC8F18D8411600B78AD8 /* ECDebugViewController.xib */,
+				0FECBC701B98557500D16FB7 /* ECNewsViewController.h */,
+				0FECBC711B9855A100D16FB7 /* ECNewsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2437,6 +2448,8 @@
 		A145CAB518D83D5E00B78AD8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0FECBC731B98844600D16FB7 /* UCUIControlEventProtocol.h */,
+				0FECBC741B98844600D16FB7 /* UCUIControlEventProtocol.m */,
 				A145CAB618D83D5E00B78AD8 /* ECAppUtil.h */,
 				A145CAB718D83D5E00B78AD8 /* ECAppUtil.m */,
 				A145CAB818D83D5E00B78AD8 /* ECDataUtil.h */,
@@ -2962,6 +2975,7 @@
 				A1B5D6D81964E1A400D4AE34 /* ECBaseImageViewDefaultImage@2x.png in Resources */,
 				A1B5D6D91964E1A400D4AE34 /* gen_score_9@2x.png in Resources */,
 				A1B5D6DC1964E1A400D4AE34 /* general_default_image.png in Resources */,
+				0FECBC6F1B98218500D16FB7 /* NewsLayout.xib in Resources */,
 				A1B5D6DD1964E1A400D4AE34 /* gen_btn_plain_green_small_press.png in Resources */,
 				63DDDF841A0AFEDA00789A09 /* action-black-button.png in Resources */,
 				A1B5D6DE1964E1A400D4AE34 /* gen_score_5@2x.png in Resources */,
@@ -3263,6 +3277,7 @@
 				A1B5D6161964E1A400D4AE34 /* ECPopupSelView.m in Sources */,
 				A1B5D6171964E1A400D4AE34 /* NSNumber+Extends.m in Sources */,
 				A1B5D6181964E1A400D4AE34 /* ECBaseMultilevelMenu.m in Sources */,
+				0FECBC721B9855A100D16FB7 /* ECNewsViewController.m in Sources */,
 				63DDDFA01A0AFEDA00789A09 /* BlockBackground.m in Sources */,
 				A1B5D6191964E1A400D4AE34 /* ECButtonClickDelegate.m in Sources */,
 				633CED1B1A6E817600FCFF58 /* SVProgressHUD.m in Sources */,
@@ -3305,6 +3320,7 @@
 				6326D6C51A0B694C00CEDD66 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				A1B5D6321964E1A400D4AE34 /* ECListDataSupport.m in Sources */,
 				A1B5D6331964E1A400D4AE34 /* ECImageView.m in Sources */,
+				0FECBC751B98844600D16FB7 /* UCUIControlEventProtocol.m in Sources */,
 				6323A83A1A10DAD100D2C938 /* MKAnnotationView+WebCache.m in Sources */,
 				A1B5D6341964E1A400D4AE34 /* UIImageView+Size.m in Sources */,
 				A1B5D6351964E1A400D4AE34 /* ECBasePullRefreshWidget.m in Sources */,

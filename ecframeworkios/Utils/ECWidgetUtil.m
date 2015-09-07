@@ -102,7 +102,7 @@
         ECLog(@"there is no such widget : %@ , or it is no finished .",widgetName);
         return nil;
     }
-    //ECLog(@"ECWidgetUtil init widget : %@",widgetName);
+    ECLog(@"ECWidgetUtil init widget : %@",widgetName);
 //    ECBaseWidget* widget = [ECReflectionUtil performSelector:widgetName selectName:@"initWithConfigDic:pageContext:" objectOne:configDic objectTwo:pageContext];
     Class class = NSClassFromString(widgetName);
     ECBaseWidget *widget = [class alloc];
