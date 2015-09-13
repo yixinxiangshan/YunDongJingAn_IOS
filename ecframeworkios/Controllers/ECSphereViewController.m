@@ -83,6 +83,10 @@
 - (void)sphereDidSelected:(int)index
 {
     ECLog(@"sphere %d selected", index);
+    //NSString* p = [NSString stringWithFormat:@"{\"id\": %d}", index+1];
+    //[ECPageUtil openNewPage:@"page_index_tab" params:[NSString stringWithFormat:@"{\"id\": %d}", index+1]];
+    //ECLog(@"sphere params %@", p);
+    //[ECPageUtil openNewPage:@"page_index_tab" params:[NSString stringWithFormat:@"%d", index+1]];
     switch(index){
         case TAB_MAP:
             [ECPageUtil openNewPage:@"page_tab_map" params:nil];

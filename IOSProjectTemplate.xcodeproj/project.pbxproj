@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F27688F1BA4789400F59002 /* ListViewCellTwoLineText.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F27688D1BA4789400F59002 /* ListViewCellTwoLineText.m */; };
+		0F2768901BA4789400F59002 /* ListViewCellTwoLineText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F27688E1BA4789400F59002 /* ListViewCellTwoLineText.xib */; };
 		0FC57C4E1AF313B9008377EF /* Default0-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57C3B1AF313B9008377EF /* Default0-568h.png */; };
 		0FC57C4F1AF313B9008377EF /* Default0-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57C3C1AF313B9008377EF /* Default0-568h@2x.png */; };
 		0FC57C501AF313B9008377EF /* Default1-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57C3D1AF313B9008377EF /* Default1-568h.png */; };
@@ -496,6 +498,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F27688C1BA4789400F59002 /* ListViewCellTwoLineText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewCellTwoLineText.h; sourceTree = "<group>"; };
+		0F27688D1BA4789400F59002 /* ListViewCellTwoLineText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewCellTwoLineText.m; sourceTree = "<group>"; };
+		0F27688E1BA4789400F59002 /* ListViewCellTwoLineText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewCellTwoLineText.xib; sourceTree = "<group>"; };
 		0FC57C3B1AF313B9008377EF /* Default0-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default0-568h.png"; sourceTree = "<group>"; };
 		0FC57C3C1AF313B9008377EF /* Default0-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default0-568h@2x.png"; sourceTree = "<group>"; };
 		0FC57C3D1AF313B9008377EF /* Default1-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default1-568h.png"; sourceTree = "<group>"; };
@@ -1629,13 +1634,13 @@
 				632E8F791A67EA57005013A1 /* ListViewCellInputText.h */,
 				632E8F7A1A67EA57005013A1 /* ListViewCellInputText.m */,
 				632E8F7C1A67EA69005013A1 /* ListViewCellInputText.xib */,
-				63E5279419D305EB0060BEA4 /* ListViewCellLine.h */,
-				63E5279519D305EB0060BEA4 /* ListViewCellLine.m */,
-				63E5279619D305EB0060BEA4 /* ListViewCellLine.xib */,
 				6388A0C719D50FE80071DA9C /* ListViewCellLineImages */,
 				635FADEB1A281F7E00F72E05 /* ListViewCellNull.h */,
 				635FADEC1A281F7E00F72E05 /* ListViewCellNull.m */,
 				635FADEE1A281FB300F72E05 /* ListViewCellNull.xib */,
+				63E5279419D305EB0060BEA4 /* ListViewCellLine.h */,
+				63E5279519D305EB0060BEA4 /* ListViewCellLine.m */,
+				63E5279619D305EB0060BEA4 /* ListViewCellLine.xib */,
 				633CED1C1A6FBEBF00FCFF58 /* ListViewCellTextWithButton.h */,
 				633CED1D1A6FBEBF00FCFF58 /* ListViewCellTextWithButton.m */,
 				633CED1F1A6FBEEE00FCFF58 /* ListViewCellTextWithButton.xib */,
@@ -1651,6 +1656,9 @@
 				6F4840AE1AAD6B070091DB7F /* ListViewCellDateSelect.h */,
 				6F4840AF1AAD6B170091DB7F /* ListViewCellDateSelect.m */,
 				6F4840AC1AAD6A710091DB7F /* ListViewCellDateSelect.xib */,
+				0F27688C1BA4789400F59002 /* ListViewCellTwoLineText.h */,
+				0F27688D1BA4789400F59002 /* ListViewCellTwoLineText.m */,
+				0F27688E1BA4789400F59002 /* ListViewCellTwoLineText.xib */,
 			);
 			path = ECListViewBaseCell;
 			sourceTree = "<group>";
@@ -2918,6 +2926,7 @@
 				A1B5D6B01964E1A400D4AE34 /* ECImagePicker-back.png in Resources */,
 				A1B5D6B11964E1A400D4AE34 /* ECInagePicker-faild.png in Resources */,
 				A1B5D6B21964E1A400D4AE34 /* gen_score_2@2x.png in Resources */,
+				0F2768901BA4789400F59002 /* ListViewCellTwoLineText.xib in Resources */,
 				A1B5D6B31964E1A400D4AE34 /* ECButtonWidget.xib in Resources */,
 				0FC57C641AF9053A008377EF /* ListViewCellArticle.xib in Resources */,
 				A1B5D6B41964E1A400D4AE34 /* ECImagePickerOverlay.xib in Resources */,
@@ -3149,6 +3158,7 @@
 				A1B5D5CF1964E1A400D4AE34 /* ECImageExtends.m in Sources */,
 				A1B5D5D01964E1A400D4AE34 /* ECJSUtil.m in Sources */,
 				6F3714CA1AB185710094D267 /* RNDecryptor.m in Sources */,
+				0F27688F1BA4789400F59002 /* ListViewCellTwoLineText.m in Sources */,
 				6F3714CB1AB185710094D267 /* RNEncryptor.m in Sources */,
 				A1B5D5D11964E1A400D4AE34 /* UIView+Size.m in Sources */,
 				633CED2B1A76449200FCFF58 /* UIAlertView+Blocks.m in Sources */,
