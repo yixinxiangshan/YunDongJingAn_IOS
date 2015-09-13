@@ -38,14 +38,16 @@
     [ECViewUtil setText:self.contentLabel data:data[@"headTitle"]];
     [ECViewUtil setText:self.replyLabel data:data[@"expandTitle"]];
  
-    [self.image setImage:[UIImage imageNamed:@"defaultImage"]];
+    //[self.image setImage:[UIImage imageNamed:@"defaultImage"]];
     //NSLog(@"data: %@", data);
  }
 
 + (CGFloat)heightForData:(NSDictionary *)data {
     
-    if([data[@"expandTitle"] isEmpty])
+    if(!data[@"expandTitle"] || [data[@"expandTitle"] isEmpty])
+    {
         return 66.0;
+    }
     else
     {
         return 99.0;

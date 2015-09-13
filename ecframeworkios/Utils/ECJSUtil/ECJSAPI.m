@@ -46,6 +46,7 @@
 #import "APService.h"
 #import "UIAlertView+Blocks.h"
 #import "Reachability.h"
+#import "ECMediaPlayer.h"
 
 @interface ECJSAPI ()
 
@@ -511,6 +512,17 @@
     return @"_false";
 }
 /**
+ * playVideo
+ */
+- (NSString *)page_playVideo:(NSDictionary *)params
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@", BASE_VIDEO_URL, params[@"_param"]];
+    ECLog(@"url: %@", url);
+    [[ECMediaPlayer shareInstance] playWithURL:url];
+    return @"_false";
+}
+ 
+/**
  * 设置页面onResult事件
  *
  * @param params
@@ -575,6 +587,21 @@
 - (NSString *)page_onCreated:(NSDictionary *)params
 {
     [[ECJSAPI getPageController:params].pageJSEvent setObject:@{kJSContextId:params[kJSContextId], kEventId:params[kEventId], kMethod:params[kMethod]} forKey:kOnPageCreated];
+    return @"_false";
+}
+
+/**
+ * app_phone
+ */
+- (NSString *)app_phone:(NSDictionary *)params
+{
+    //NSLog(@"params: %@", params);
+    NSString * phoneNumber = params[@"_param"];
+    NSLog(@"phone: %@", phoneNumber);
+    if (!phoneNumber || [phoneNumber isEqualToString:@""]) {
+        NSLog(@"参数传弟错误，method : app_phone");
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]]];
     return @"_false";
 }
 

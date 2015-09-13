@@ -31,6 +31,7 @@
 #define API_URL         @"http://856854478.cloudapi.nowapp.cn/api"
 #define CONFIG_URL      @"http://jinganapi.nowapp.cn/eceditor/downCoffee"
 #define BASE_URL_IMAGE  @"http://is.hudongka.com"
+#define BASE_VIDEO_URL @"http://qymhvideo.oss.aliyuncs.com/"
 #define AES_KEY        @"ECloudChangeFuture"
 
 #define ISIOS7          ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
