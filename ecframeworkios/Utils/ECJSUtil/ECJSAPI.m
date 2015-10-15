@@ -47,6 +47,8 @@
 #import "UIAlertView+Blocks.h"
 #import "Reachability.h"
 #import "ECMediaPlayer.h"
+#import "SJAvatarBrowser.h"
+#import "ECImageUtil.h"
 
 @interface ECJSAPI ()
 
@@ -707,7 +709,7 @@
 
         NSLog(param, @"param 为空!!!!!!!");
         NSString *result = [ECAppUtil getPreference:key];
-        NSLog(@"app_preference %@" , result);
+        ECLog(@"app_preference %@" , result);
         return result;
     }
     return @"_false";
@@ -855,10 +857,12 @@
 
 - (NSString *)app_fullImage:(NSDictionary *)params
 {
-    
+    NSString *imgSrc = params[@"imageurl"];
+    imgSrc=[ECImageUtil getImageWholeUrl:imgSrc];
+    ECLog(@"image source: %@", imgSrc);
+    //[SJAvatarBrowser showImage:imgSrc];
     return @"_false";
 }
-
 
 
 

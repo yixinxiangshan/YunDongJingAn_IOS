@@ -8,6 +8,7 @@
 
 #import "ECListViewBaseCell.h"
 
-@interface ListViewCellImage : ECListViewBaseCell<ECListViewCellProtocol>
+@interface ListViewCellImageVersion : ECListViewBaseCell<ECListViewCellProtocol>
 @property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *version;
 @end

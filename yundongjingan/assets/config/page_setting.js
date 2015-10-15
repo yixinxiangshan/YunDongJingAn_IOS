@@ -30,14 +30,7 @@
           bottomTitle: "运动静安",
           titlePosition: "center",
           _type: "logo",
-          hasFooterDivider: "true"
-        }, {
-          viewType: "ListViewCellLine",
-          _rightLayoutSize: 0,
-          _leftLayoutSize: 0,
-          centerTitle: "检测新版本",
-          _type: "update",
-          hasFooterDivider: "true"
+          hasFooterDivider: "false"
         }
       ]
     };

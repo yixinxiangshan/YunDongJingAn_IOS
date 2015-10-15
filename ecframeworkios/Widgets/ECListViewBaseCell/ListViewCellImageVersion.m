@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 ECloud. All rights reserved.
 //
 
-#import "ListViewCellImage.h"
+#import "ListViewCellImageVersion.h"
 #import "ECViewUtil.h"
 #import "UIColorExtends.h"
 
-@implementation ListViewCellImage
+@implementation ListViewCellImageVersion
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -32,7 +32,11 @@
     [super setData:data];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [ECViewUtil getImageByConfig:self.image config:self.data[@"image"]];
-    
+    NSString *name = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    self.version.text = [[name stringByAppendingString:@" "] stringByAppendingString:version];
+    self.version.text = @"";
+    //NSLog(@"version: %@", self.version.text);
 }
 
 

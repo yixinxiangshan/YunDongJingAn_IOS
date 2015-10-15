@@ -20,8 +20,9 @@ class ECpageClass
         bottomTitle: "运动静安"
         titlePosition: "center"  #left  right
         _type: "logo"
-        hasFooterDivider: "true"
+        hasFooterDivider: "false"
       }
+    ]
 # {
 #     viewType: "ListViewCellLine"
 #     _rightLayoutSize: 0
@@ -30,16 +31,16 @@ class ECpageClass
 #     _type:"clear"
 
 # }
-      {
-        viewType: "ListViewCellLine"
-        _rightLayoutSize: 0
-        _leftLayoutSize: 0
-        centerTitle: "检测新版本"
-        _type: "update"
-        hasFooterDivider: "true"
+#    {
+#        viewType: "ListViewCellLine"
+#        _rightLayoutSize: 0
+#        _leftLayoutSize: 0
+#       centerTitle: "检测新版本"
+#        _type: "update"
+#        hasFooterDivider: "true"
+#
+#      }
 
-      }
-    ]
 
   _constructor: (@_page_name) ->
     root = this

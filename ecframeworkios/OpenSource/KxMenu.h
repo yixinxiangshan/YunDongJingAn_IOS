@@ -40,27 +40,17 @@
 @property (readwrite, nonatomic, strong) NSString *title;
 @property (readwrite, nonatomic, weak) id target;
 @property (readwrite, nonatomic) SEL action;
-@property (readwrite, nonatomic) NSDictionary *config;
 @property (readwrite, nonatomic) NSString *param;
-
 @property (readwrite, nonatomic, strong) UIColor *foreColor;
 @property (readwrite, nonatomic) NSTextAlignment alignment;
-
-@property (readwrite, nonatomic) NSString* viewId;
-@property (readwrite, nonatomic) NSString* position;
+@property (readwrite, nonatomic) NSInteger tag;
 
 + (instancetype) menuItem:(NSString *) title
                     image:(UIImage *) image
                    target:(id)target
-                    config:(NSDictionary *) config
+                    param:(NSString *) param
                    action:(SEL) action;
 
-
-+ (instancetype) menuItem:(NSString *) title
-                    image:(UIImage *) image
-                   target:(id)target
-                   param:(NSString *) param
-                   action:(SEL) action;
 @end
 
 @interface KxMenu : NSObject

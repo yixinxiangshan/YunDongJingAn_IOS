@@ -14,6 +14,7 @@
 #import "NSStringExtends.h"
 #import "PureLayout.h"
 #import "UIColorExtends.h"
+#import "SJAvatarBrowser.h"
 
 @implementation ListViewCellLine
 
@@ -30,7 +31,11 @@
 - (void)awakeFromNib
 {
     // NSLog(@"listviewcellline centerTitle awakeFromNib");
-    
+//    [_rightImage setUserInteractionEnabled:YES];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+//    [tap setNumberOfTapsRequired:1];
+//    [tap setNumberOfTouchesRequired:1];
+//    [_rightImage addGestureRecognizer:tap];
 }
 
 - (void)setData:(NSDictionary *)data

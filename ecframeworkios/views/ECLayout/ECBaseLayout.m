@@ -15,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-        [self setBackgroundColor:[UIColor colorWithScript:self.kProperties[@"backgroundColor"]]];
+        //[self setBackgroundColor:[UIColor colorWithScript:self.kProperties[@"backgroundColor"]]];
     }
     return self;
 }

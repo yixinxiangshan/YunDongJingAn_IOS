@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,46 +12,54 @@
             <rect key="frame" x="0.0" y="0.0" width="488" height="158"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalHuggingPriority="501" placeholderIntrinsicWidth="949" placeholderIntrinsicHeight="322" tableViewCell="hKf-cc-a4P" id="jgz-9w-tfk">
-                <rect key="frame" x="0.0" y="0.0" width="885" height="357"/>
+                <rect key="frame" x="0.0" y="0.0" width="488" height="157"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="251" misplaced="YES" text="centerRighttopdes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2p-PL-azc">
                         <rect key="frame" x="405" y="8" width="120" height="17"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-0q-M2R" customClass="UIImageView">
                         <rect key="frame" x="8" y="56" width="20" height="20"/>
+                        <animations/>
                     </view>
                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="mdV-S3-P7E" customClass="UIImageView">
                         <rect key="frame" x="487" y="52" width="20" height="20"/>
+                        <animations/>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="centerTitle" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOx-eA-Xa8">
                         <rect key="frame" x="28" y="8" width="85" height="18"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="700" ambiguous="YES" misplaced="YES" text="centerBottomdes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWF-q5-AsL">
                         <rect key="frame" x="28" y="34" width="133" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="700" ambiguous="YES" misplaced="YES" text="centerBottomdes2" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23w-gL-xNZ">
                         <rect key="frame" x="28" y="66" width="150" height="22"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="600" misplaced="YES" text="centerRightDes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOP-Cn-ibV">
                         <rect key="frame" x="350" y="51" width="104" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.46338917669340474" green="0.46338917669340474" blue="0.46338917669340474" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="MWF-q5-AsL" secondAttribute="bottom" constant="10" id="3Mv-ee-8nN"/>
                     <constraint firstItem="23w-gL-xNZ" firstAttribute="top" secondItem="XOx-eA-Xa8" secondAttribute="bottom" constant="8" id="Be9-2l-K86"/>
@@ -71,6 +79,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="centerBottomdes" destination="MWF-q5-AsL" id="QfO-eC-bIl"/>
                 <outlet property="centerBottomdes2" destination="23w-gL-xNZ" id="hpa-a4-0PG"/>

@@ -16,6 +16,8 @@
 
 + (NSString*)getSImageWholeUrl:(NSString*)imageName;
 
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
+
 + (UIImage *) imageWithUIColor:(UIColor *)color;
 + (UIImage *) imageWithUIColor:(UIColor *)color size:(CGSize)size;
 

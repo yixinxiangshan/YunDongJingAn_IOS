@@ -38,7 +38,19 @@
     if([imageType isEmpty] || (![imageType isEqualToString:@"jpg"] && ![imageType isEqualToString:@"png"])){
         return nil;
     }
-    return [self getImageWholeUrl:[NSString stringWithFormat:@"%@_600.%@",imagePureName,imageType]];
+//    if([imagePureName isEqualToString:@"3013697"])
+//        return [self getImageWholeUrl:imageName];
+//    else
+        return [self getImageWholeUrl:[NSString stringWithFormat:@"%@_600.%@",imagePureName,imageType]];
+}
+
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 

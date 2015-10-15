@@ -24,6 +24,7 @@
 #import  <TestinAgent/TestinAgent.h>
 #import <PgySDK/PgyManager.h>
 #import "ECSphereViewController.h"
+#import "ECEventRouter.h"
 
 @interface ECAppDelegate ()
 @property (nonatomic, strong) NSString* appConfig;
@@ -49,6 +50,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _jsUtil = [ECJSUtil shareInstance];
     // Override point for customization after application launch.
+    
+    //添加事件监听
+    [[ECEventRouter shareInstance] registerAllEvents];
+    
     if (EC_DEBUG_ON) {
         if (!CONFIG_URL) {
             _window.rootViewController = [[ECDebugViewController alloc] init];
@@ -60,7 +65,7 @@
     }
     //    self.viewController = [[ECViewController alloc] initWithNibName:@"ECViewController" bundle:nil];
     //    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+    //[self.window makeKeyAndVisible];
     
     //极光推送 Required
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_1
@@ -118,8 +123,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
 -(void)downloadProcess:(NSNotification*) noti{
-    //float process = [(NSNumber*)[noti.userInfo objectForKey:@"process"] floatValue];
-    //ECLog(@"downloadProcess : %f" , process);
+    float process = [(NSNumber*)[noti.userInfo objectForKey:@"process"] floatValue];
+    ECLog(@"downloadProcess : %f" , process);
     [[NSNotificationCenter defaultCenter] removeObserver:self name:noti.name object:nil];
 }
 -(void)downloadFinished:(NSNotification*) noti{

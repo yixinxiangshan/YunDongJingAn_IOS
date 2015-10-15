@@ -13,6 +13,7 @@
 #import "ECBaseViewController.h"
 #import "ECNewsViewController.h"
 #import "ECAppUtil.h"
+#import "ECMapViewController.h"
 
 @interface ECSphereViewController () <SphereMenuDelegate>
 
@@ -89,7 +90,13 @@
     //[ECPageUtil openNewPage:@"page_index_tab" params:[NSString stringWithFormat:@"%d", index+1]];
     switch(index){
         case TAB_MAP:
-            [ECPageUtil openNewPage:@"page_tab_map" params:nil];
+        {
+            //[ECPageUtil openNewPage:@"page_tab_map" params:nil];
+            ECMapViewController* mapViewController = [[ECMapViewController alloc] initWithNibName:nil bundle:nil];
+            ECBaseViewController* nowController = [[ECAppUtil shareInstance] getNowController];
+            [[nowController navigationController] pushViewController:mapViewController animated:YES];
+            
+        }
             break;
         case TAB_COUPON:
             [ECPageUtil openNewPage:@"page_tab_cheerup" params:nil];
