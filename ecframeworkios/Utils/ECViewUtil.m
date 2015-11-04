@@ -224,7 +224,7 @@ CGFloat totalHeight(){
         return nil;
     }
     image.hidden = NO;
-    ECLog(@"++++++++image data: %@, image size: %@", data[@"imageSrc"], [data objectForKey:@"imageSize"]);
+    //ECLog(@"++++++++image data: %@, image size: %@", data[@"imageSrc"], [data objectForKey:@"imageSize"]);
     //    NSLog(@"ListViewCellICircleProgressBar setImageView imagewidth 1: %f ； src : %@" , image.frame.size.width ,data[@"imageSrc"]);
     // 尺寸设置
     CGSize imageSize = CGSizeMake(50.0 , 50.0);
@@ -238,8 +238,6 @@ CGFloat totalHeight(){
         imageSize = CGSizeMake(70 , 70);
     }else if ([[data objectForKey:@"imageSize"] isEqualToString:@"large"]){
         imageSize = CGSizeMake(200 , 150);
-//    }else if ([[data objectForKey:@"imageSize"] isEqualToString:@"xlarge"]){
-//        imageSize = CGSizeMake(200 , 150);
     }else if ([[data objectForKey:@"imageSize"] isEqualToString:@"full"]){
         imageSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width-20 , ([[UIScreen mainScreen] bounds].size.width-20)*3/4);
     }else if ([[data objectForKey:@"imageSize"] isEqualToString:@"fitSize"]){
@@ -262,18 +260,22 @@ CGFloat totalHeight(){
             imgUrl=[ECImageUtil getSImageWholeUrl : data[@"imageSrc"]];
         }
         
-        ECLog(@"+++++++++ img Url is: %@", imgUrl);
+        //ECLog(@"+++++++++ img Url is: %@", imgUrl);
         
         [manager downloadImageWithURL:[NSURL URLWithString:imgUrl] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
         } completed:^(UIImage *_image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            ECLog(@"++++++++ image width: %f", imageSize.width);
-            //UIImage *convereted = [ECImageUtil imageWithImage:_image scaledToSize:imageSize];
-            if (imageSize.width != 0.0)
-                [image setImage:[_image fitToWidth:imageSize.width]];
+            //ECLog(@"++++++++ image width: %f", imageSize.width);
+            if(_image)
+            {
+                ECLog(@"image size: %f, %f", _image.size,width, _image.size.height);
+                if (imageSize.width != 0.0)
+                    [image setImage:[_image fitToWidth:imageSize.width]];
+                else
+                    [image setImage:_image];
+            }
             else
-                [image setImage:_image];
-            //[image setImage:convereted];
+                ECLog(@"Failed to download image: %@", error);
         }];
         //        [manager downloadWithURL:[NSURL URLWithString:[ECImageUtil getSImageWholeUrl:data[@"imageSrc"]]]
         //                         options:0 progress:^(NSUInteger receivedSize, long long expectedSize) {

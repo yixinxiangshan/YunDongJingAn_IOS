@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		0F27688F1BA4789400F59002 /* ListViewCellTwoLineText.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F27688D1BA4789400F59002 /* ListViewCellTwoLineText.m */; };
 		0F2768901BA4789400F59002 /* ListViewCellTwoLineText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F27688E1BA4789400F59002 /* ListViewCellTwoLineText.xib */; };
-		0F590CB61BC272E8008994B0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CB21BC272E8008994B0 /* BaseViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CB71BC272E8008994B0 /* ECBaseViewExtendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CB51BC272E8008994B0 /* ECBaseViewExtendController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CBA1BC272FA008994B0 /* ECMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CB91BC272FA008994B0 /* ECMapViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CCB1BC27359008994B0 /* UMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CC31BC27359008994B0 /* UMNavigationController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CCC1BC27359008994B0 /* UMTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CC51BC27359008994B0 /* UMTools.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CCD1BC27359008994B0 /* UMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CC71BC27359008994B0 /* UMViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CCE1BC27359008994B0 /* UMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CC91BC27359008994B0 /* UMWebViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CD71BC27374008994B0 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CD11BC27374008994B0 /* IISideController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CD81BC27374008994B0 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CD41BC27374008994B0 /* IIViewDeckController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CD91BC27374008994B0 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CD61BC27374008994B0 /* IIWrapController.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CDD1BC2738F008994B0 /* ECEventRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CDC1BC2738F008994B0 /* ECEventRouter.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CE11BC273BE008994B0 /* ECEventRouterConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F590CDE1BC273BE008994B0 /* ECEventRouterConfig.plist */; settings = {ASSET_TAGS = (); }; };
-		0F590CE21BC273BE008994B0 /* URLConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F590CDF1BC273BE008994B0 /* URLConfig.plist */; settings = {ASSET_TAGS = (); }; };
-		0F590CE31BC273BE008994B0 /* ECLeDongDiTuConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F590CE01BC273BE008994B0 /* ECLeDongDiTuConfig.plist */; settings = {ASSET_TAGS = (); }; };
-		0F590CE61BC27595008994B0 /* ECMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CE51BC27595008994B0 /* ECMapAnnotation.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CEE1BC2AEA2008994B0 /* UCUIControlEventProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CED1BC2AEA2008994B0 /* UCUIControlEventProtocol.m */; settings = {ASSET_TAGS = (); }; };
-		0F590CF81BC39FC1008994B0 /* drop.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F590CF71BC39FC1008994B0 /* drop.png */; settings = {ASSET_TAGS = (); }; };
-		0F590D191BC4F17B008994B0 /* ListViewCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590D171BC4F17B008994B0 /* ListViewCellImage.m */; settings = {ASSET_TAGS = (); }; };
-		0F590D1C1BC546AF008994B0 /* ListViewCellImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F590D1B1BC546AF008994B0 /* ListViewCellImage.xib */; settings = {ASSET_TAGS = (); }; };
+		0F590CB61BC272E8008994B0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CB21BC272E8008994B0 /* BaseViewController.m */; };
+		0F590CB71BC272E8008994B0 /* ECBaseViewExtendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CB51BC272E8008994B0 /* ECBaseViewExtendController.m */; };
+		0F590CBA1BC272FA008994B0 /* ECMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CB91BC272FA008994B0 /* ECMapViewController.m */; };
+		0F590CCB1BC27359008994B0 /* UMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CC31BC27359008994B0 /* UMNavigationController.m */; };
+		0F590CCC1BC27359008994B0 /* UMTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CC51BC27359008994B0 /* UMTools.m */; };
+		0F590CCD1BC27359008994B0 /* UMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CC71BC27359008994B0 /* UMViewController.m */; };
+		0F590CCE1BC27359008994B0 /* UMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CC91BC27359008994B0 /* UMWebViewController.m */; };
+		0F590CD71BC27374008994B0 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CD11BC27374008994B0 /* IISideController.m */; };
+		0F590CD81BC27374008994B0 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CD41BC27374008994B0 /* IIViewDeckController.m */; };
+		0F590CD91BC27374008994B0 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CD61BC27374008994B0 /* IIWrapController.m */; };
+		0F590CDD1BC2738F008994B0 /* ECEventRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CDC1BC2738F008994B0 /* ECEventRouter.m */; };
+		0F590CE11BC273BE008994B0 /* ECEventRouterConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F590CDE1BC273BE008994B0 /* ECEventRouterConfig.plist */; };
+		0F590CE21BC273BE008994B0 /* URLConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F590CDF1BC273BE008994B0 /* URLConfig.plist */; };
+		0F590CE31BC273BE008994B0 /* ECLeDongDiTuConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F590CE01BC273BE008994B0 /* ECLeDongDiTuConfig.plist */; };
+		0F590CE61BC27595008994B0 /* ECMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CE51BC27595008994B0 /* ECMapAnnotation.m */; };
+		0F590CEE1BC2AEA2008994B0 /* UCUIControlEventProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590CED1BC2AEA2008994B0 /* UCUIControlEventProtocol.m */; };
+		0F590CF81BC39FC1008994B0 /* drop.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F590CF71BC39FC1008994B0 /* drop.png */; };
+		0F590D191BC4F17B008994B0 /* ListViewCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F590D171BC4F17B008994B0 /* ListViewCellImage.m */; };
+		0F590D1C1BC546AF008994B0 /* ListViewCellImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F590D1B1BC546AF008994B0 /* ListViewCellImage.xib */; };
 		0F63219F1BA5739500C3D155 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F63219E1BA5739500C3D155 /* Base64.m */; };
 		0F6321A51BAB02E300C3D155 /* SJAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6321A41BAB02E300C3D155 /* SJAvatarBrowser.m */; };
 		0FC57C4E1AF313B9008377EF /* Default0-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57C3B1AF313B9008377EF /* Default0-568h.png */; };
@@ -3599,8 +3599,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = Splash;
-				CODE_SIGN_IDENTITY = "iPhone Developer: XUMEI SHAN (2KKD3NCLWX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: XUMEI SHAN (2KKD3NCLWX)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: XUMEI SHAN (735A9HYD7H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: XUMEI SHAN (735A9HYD7H)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3623,7 +3623,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = jinganledongtiyu;
-				PROVISIONING_PROFILE = "1b3d9db2-2530-4ab1-8581-296b2fdc3c7b";
+				PROVISIONING_PROFILE = "64c25408-cd62-484d-8e45-71ee7067db65";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s";
@@ -3637,9 +3637,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = Splash;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: XUMEI SHAN (735A9HYD7H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: XUMEI SHAN (735A9HYD7H)";
-				ENABLE_BITCODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/ecframeworkios/OpenSource",
@@ -3675,8 +3675,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = Splash;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: XUMEI SHAN (735A9HYD7H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: XUMEI SHAN (735A9HYD7H)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

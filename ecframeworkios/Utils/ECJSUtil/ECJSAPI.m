@@ -819,20 +819,18 @@
 
 - (NSString *)app_confirmDownloadNewVersion:(NSDictionary *)params
 {
-    
-    
-    
-    [UIAlertView showWithTitle:@"发现新版本"
-                       message:params[@"data"]
-             cancelButtonTitle:@"取消"
-             otherButtonTitles:@[params[@"ok"]]
-                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                          if (buttonIndex == [alertView cancelButtonIndex]) {
-                          } else {
-                              NSString *url = [ECAppUtil getPreference:@"net_version_url"];
-                              [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-                          }
-                      }];
+
+//    [UIAlertView showWithTitle:@"发现新版本"
+//                       message:params[@"data"]
+//             cancelButtonTitle:@"取消"
+//             otherButtonTitles:@[params[@"ok"]]
+//                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+//                          if (buttonIndex == [alertView cancelButtonIndex]) {
+//                          } else {
+//                              NSString *url = [ECAppUtil getPreference:@"net_version_url"];
+//                              [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+//                          }
+//                      }];
     return @"_false";
 }
 

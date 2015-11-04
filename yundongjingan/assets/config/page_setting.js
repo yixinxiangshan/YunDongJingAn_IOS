@@ -74,44 +74,7 @@
 
     ECpageClass.prototype.onResult = function(data) {};
 
-    ECpageClass.prototype.onItemClick = function(data) {
-      if (this._listview_data.data[data.position]._type === "update") {
-        $A().app().showLoadingDialog({
-          content: "正在检查新版本信息"
-        });
-        return $A().app().callApi({
-          method: "projects/detail",
-          cacheTime: 0
-        }).then(function(res) {
-          $A().app().preference({
-            key: "net_version_num",
-            value: data.version_num
-          });
-          $A().app().preference({
-            key: "net_version_url",
-            value: data.download_url
-          });
-          return $A().app().getAppVersion().then(function(version) {
-            $A().app().closeLoadingDialog();
-            if (parseFloat(data.version_num) > parseFloat(version)) {
-              if (data.description == null) {
-                data.description = "";
-              }
-              return $A().app().confirmDownloadNewVersion({
-                ok: "下载",
-                data: data.description != null ? ("最新版本:" + data.version_num + "\n\n【更新内容】\n") + data.description : void 0
-              });
-            } else {
-              return $A().app().showConfirm({
-                ok: "确认",
-                message: "已是最新版本",
-                title: "版本确认"
-              });
-            }
-          });
-        });
-      }
-    };
+    ECpageClass.prototype.onItemClick = function(data) {};
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
       if (this._listview_data.data[data.position]._type === "logout") {

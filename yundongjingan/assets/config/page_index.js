@@ -61,26 +61,6 @@
                 } else {
                   return $A().app().makeToast("没有网络");
                 }
-              } else {
-                $A().app().preference({
-                  key: "net_version_num",
-                  value: data.version_num
-                });
-                $A().app().preference({
-                  key: "net_version_url",
-                  value: data.download_url
-                });
-                return $A().app().getAppVersion().then(function(version) {
-                  if (parseFloat(data.version_num) > parseFloat(version)) {
-                    if (data.description == null) {
-                      data.description = "";
-                    }
-                    return $A().app().confirmDownloadNewVersion({
-                      ok: "下载",
-                      data: data.description != null ? ("最新版本:" + data.version_num + "\n\n【更新内容】\n") + data.description : void 0
-                    });
-                  }
-                });
               }
             });
           });
