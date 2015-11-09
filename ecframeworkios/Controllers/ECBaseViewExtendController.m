@@ -56,12 +56,12 @@
 }
 -(void) setNavigatorMenu
 {
-    NSLog(@"%@  : set navigationBar menu",self.class);
+    //NSLog(@"%@  : set navigationBar menu",self.class);
     NSArray *navigatorMenuConfig = [[self.configs objectForKey:@"localData"] objectForKey:@"navigatorMenuList"];
     
     navigatorMenuCount = navigatorMenuConfig.count;
     
-    NSLog(@"nav menu cnt: %d", navigatorMenuCount);
+    //NSLog(@"nav menu cnt: %d", navigatorMenuCount);
     
     UIView* navigatorMenuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, navigatorMenuItemWidth*navigatorMenuCount, navigationBarHeight)];
     for (int i = 0; i < navigatorMenuCount; i ++) {

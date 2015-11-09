@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"ECBaseViewController viewDidLoad : ");
+    ECLog(@"ECBaseViewController viewDidLoad : ");
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -44,7 +44,7 @@
         NSURL *PlistURL = [[NSBundle mainBundle] URLForResource:_configName withExtension:@"plist"];
         self.configs =  [NSDictionary dictionaryWithContentsOfURL:PlistURL];
         
-        NSLog(@"%s configs: %@",TAG,self.configs);
+        ECLog(@"%s configs: %@",TAG,self.configs);
         
         self.styles = [self.configs objectForKey:@"style"];
         self.navTitle = [self.configs objectForKey:@"navTitle"];
@@ -92,13 +92,15 @@
         self.extendedLayoutIncludesOpaqueBars = NO;
         self.modalPresentationCapturesStatusBarAppearance = NO;
         
-        [self.navigator.navigationBar setTintColor:[UIColor whiteColor]];
+        //[self.navigator.navigationBar setTintColor:[UIColor whiteColor]];
+        [self.navigator.navigationBar setTintColor:nil];
+        
     }else{
         [self.navigator.navigationBar setTintColor:[UIColor colorWithRed:0.53 green:0.15 blue:0.18 alpha:1.00]];
     }
     
     //返回按扭
-    NSLog(@"set back button");
+    ECLog(@"set back button");
     UIBarButtonItem* back = [[UIBarButtonItem alloc] init];
     back.style = UIBarButtonItemStyleBordered;
     back.title = @"返回";

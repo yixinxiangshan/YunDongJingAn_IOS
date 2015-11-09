@@ -268,7 +268,7 @@ CGFloat totalHeight(){
             //ECLog(@"++++++++ image width: %f", imageSize.width);
             if(_image)
             {
-                ECLog(@"image size: %f, %f", _image.size,width, _image.size.height);
+                //ECLog(@"image size: %f, %f", _image.size,width, _image.size.height);
                 if (imageSize.width != 0.0)
                     [image setImage:[_image fitToWidth:imageSize.width]];
                 else

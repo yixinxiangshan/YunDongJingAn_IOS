@@ -102,7 +102,7 @@
     //设置背景
     [_navController.navigationBar setBackgroundImage:[self parseBackgroundImage] forBarMetrics:UIBarMetricsDefault];
     if (ISIOS7) {
-        [_nowController.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+        [_nowController.navigationController.navigationBar setTintColor:nil];
     }else{
         //TODO: 兼容ios6 及以下版本，若_actionBarBg传入的是图片名（非 #aabbcc格式）则出错
         UIColor* color = [_actionBarBg hasPrefix:@"#"] > 0 ? [UIColor colorWithHexString:_actionBarBg] : nil;

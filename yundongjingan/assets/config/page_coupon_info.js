@@ -123,7 +123,11 @@
                   return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
                 });
               } else {
-                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+                if ((data1.errors != null) && (data1.errors[0] != null) && (data1.errors[0].error_num != null)) {
+                  return $A().app().makeToast(data1.errors[0].error_msg);
+                } else {
+                  return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+                }
               }
             });
           } else {

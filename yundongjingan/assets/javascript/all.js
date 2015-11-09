@@ -627,17 +627,7 @@ var AppController = Class.create({
 		 this.startNotiService();
 	},
 	checkVersion: function(params) {
-		var newversion = this.versionIsNew();
-		if (newversion == true) {
-			if (params) alert("您当前已经是最新版本了！", "pecct://app/null");
-			else return false;
-		} else {
-			var url = "pecct://app/downNewApp/?" + Object.toQueryString({
-				url: newversion
-			})
-			confirm("有新版本，请点击确定下载更新！", url, "pecct://app/null");
-			return true;
-		}
+        return false;
 	},
 	openActivity : function(params){
 			var actionbardata ={
@@ -709,10 +699,6 @@ var AppController = Class.create({
   openOutUrl: function(params) {
 	  $O.openOutUrl(params.url);
 	},
-	downNewApp: function(params) {
-		$O.openOutUrl(params.url);
-		$O.finishNowActivity();
-	},
 	finishNowActivity : function(){
 		$O.finishNowActivity(null);
 	},
@@ -727,9 +713,9 @@ var AppController = Class.create({
 		if($cfg.start_controller){
 			$O.postEvent("openActivityWithFinished", "" ,$cfg.start_controller, "", null);
 		}
-		if ($cfg.uninstall_package && $O.checkInstalledPackage($cfg.uninstall_package)) {
-			confirm($cfg.appname + "已全面升级，系统检测到您装有旧版本的软件，请点击“确认”卸载旧版软件。", "pecct://app/uninstallApp?package_name=" + $cfg.uninstall_package, "pecct://app/null");
-		}
+		//if ($cfg.uninstall_package && $O.checkInstalledPackage($cfg.uninstall_package)) {
+		//	confirm($cfg.appname + "已全面升级，系统检测到您装有旧版本的软件，请点击“确认”卸载旧版软件。", "pecct://app/uninstallApp?package_name=" + $cfg.uninstall_package, "pecct://app/null");
+		//}
 	},
 
 	// 启动 notiSetvice

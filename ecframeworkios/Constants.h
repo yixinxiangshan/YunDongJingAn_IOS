@@ -43,7 +43,7 @@
 
 #define ECLog(...) NSLog(__VA_ARGS__)
 #else
-#define ECLog(...)
-//#define ECLog(...) NSLog(__VA_ARGS__)
+//#define ECLog(...)
+#define ECLog(...) NSLog(__VA_ARGS__)
 #endif
 
