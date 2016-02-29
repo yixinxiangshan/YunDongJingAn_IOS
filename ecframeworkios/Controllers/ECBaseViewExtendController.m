@@ -170,11 +170,16 @@
     if (key == nil || key == NULL || data == nil || data == NULL) {
         return nil;
     }
-    int location = [key rangeOfString:@"."].location;
-    
+    NSLog(@"key: %@", key);
+    NSInteger location = [key rangeOfString:@"."].location;
+    //NSLog(@"key: %ld end", location);
+
     if (location == NSNotFound) {
+        NSLog(@"NSNotFound.");
         return [data valueForKey:key];
     }else{
+        NSLog(@"else NSNotFound.");
+
         NSString* forwardKey = [key substringToIndex:location];
         NSString* behandkey = [key substringFromIndex:location+1];
         //递归

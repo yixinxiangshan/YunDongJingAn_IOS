@@ -504,9 +504,9 @@
  */
 - (NSString *)page_openQRCapture:(id)params
 {
-    // NSLog(@"JSAPI page_openQRCapture: %@ %@ %@",params[kJSContextId],params[kEventId],params[kMethod]);
-    //    NSDictionary *event = @{kJSContextId:params[kJSContextId], kEventId:params[kEventId], kMethod:params[kMethod]};
-    //    NSLog(@"page_openQRCapture event : %@" , event);
+     NSLog(@"JSAPI page_openQRCapture: %@ %@ %@",params[kJSContextId],params[kEventId],params[kMethod]);
+//        NSDictionary *event = @{kJSContextId:params[kJSContextId], kEventId:params[kEventId], kMethod:params[kMethod]};
+//        NSLog(@"page_openQRCapture event : %@" , event);
     [ECQRCapture start:^(NSString *resultString) {
         [[ECJSAPI getPageController:params] dispatchJSEvetn:@"onResult" withParams:@{@"codeString":resultString} ];
         // [self.class dispatch_page_on_event:event withParams:resultString];
@@ -538,6 +538,7 @@
  */
 - (NSString *)page_onResult:(NSDictionary *)params
 {
+    NSLog(@"page on result %@", params);
     [[ECJSAPI getPageController:params].pageJSEvent setObject:@{kJSContextId:params[kJSContextId], kEventId:params[kEventId], kMethod:params[kMethod]} forKey:@"onResult"];
     return @"_false";
 }

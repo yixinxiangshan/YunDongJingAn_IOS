@@ -192,6 +192,7 @@
 }
 //显示 Annotations
 -(void) showAnnotations{
+
     NSArray* annotations = self.mapView.annotations;
     for (id annotation in annotations) {
         if (![annotation isKindOfClass:[MKUserLocation class]]) {
@@ -199,6 +200,7 @@
             [self.mapView removeAnnotation:annotation];
         }
     }
+
     [self.mapView selectAnnotation:_userAnnotation animated:NO];
     [self.mapView addAnnotations:self.mapAnnotations];
 }
@@ -303,7 +305,7 @@
             // TODO: 弹出数据出错！
             NSLog(@"数据出错！");
         }
-        //        NSLog(@"%@ : 解析数据，获得 annotation from %@",self.class,dataArray);
+        NSLog(@"%@ : 解析数据，获得 annotation from %@",self.class,dataArray);
 
         [mapAnnotations removeAllObjects];
         for (NSDictionary* dataItem in dataArray) {
@@ -314,9 +316,9 @@
                 mainValue = [dataItem valueForKey:[adapter valueForKey:@"itemKey"]];
             }
 
-
             if (mainValue && [mainValue isKindOfClass:[NSArray class]]) {
                 //遍历 mainValue 获得地点信息
+                NSLog(@"theresa 1");
 
                 for (NSDictionary* value in mainValue) {
 
@@ -331,8 +333,8 @@
                     annotation.coordinate = coords;
                     annotation.tag = [[self getValue:dataItem forKey:[adapter valueForKey:@"tagKey"]] integerValue];
                     annotation.sorts = [self getValue:dataItem forKey:[adapter valueForKey:@"sortKey"]];
-                    [self.annotationTitle setObject:annotation.title forKey:[NSString stringWithFormat:@"%i",annotation.tag]];
-//                    NSLog(@"%@ Annotation : \ntitle = %@\nsubtitle=%@\nlat=%f\nlog=%f\ntag=%i",self.class,annotation.title,annotation.subtitle,coords.latitude,coords.longitude,annotation.tag);
+                    [self.annotationTitle setObject:annotation.title forKey:[NSString stringWithFormat:@"%ld",annotation.tag]];
+                    NSLog(@"%@ Annotation : \ntitle = %@\nsubtitle=%@\nlat=%f\nlog=%f\ntag=%ld",self.class,annotation.title,annotation.subtitle,coords.latitude,coords.longitude,annotation.tag);
 
                     [mapAnnotations addObject:annotation];
 
@@ -353,8 +355,9 @@
                 annotation.coordinate = coords;
                 annotation.tag = [[self getValue:dataItem forKey:[adapter valueForKey:@"tagKey"]] integerValue];
                 annotation.sorts = [self getValue:dataItem forKey:[adapter valueForKey:@"sortKey"]];
-                [self.annotationTitle setObject:annotation.title forKey:[NSString stringWithFormat:@"%i",annotation.tag]];
-//                NSLog(@"%@ Annotation : \ntitle = %@\nsubtitle=%@\nlat=%f\nlog=%f\ntag=%i",self.class,annotation.title,annotation.subtitle,coords.latitude,coords.longitude,annotation.tag);
+
+                [self.annotationTitle setObject:annotation.title forKey:[NSString stringWithFormat:@"%ld",annotation.tag]];
+                NSLog(@"%@ Annotation : \ntitle = %@\nsubtitle=%@\nlat=%f\nlog=%f\ntag=%ld",self.class,annotation.title,annotation.subtitle,coords.latitude,coords.longitude,annotation.tag);
 
                 [mapAnnotations addObject:annotation];
 
@@ -368,7 +371,6 @@
         [self showAnnotations];
 
     }
-
 }
 
 

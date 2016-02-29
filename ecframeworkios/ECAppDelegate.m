@@ -21,8 +21,7 @@
 #import "ECDebugViewController.h"
 #import "CoreData+MagicalRecord.h"
 #import "APService.h"
-#import  <TestinAgent/TestinAgent.h>
-#import <PgySDK/PgyManager.h>
+//#import  <TestinAgent/TestinAgent.h>
 #import "ECSphereViewController.h"
 #import "ECEventRouter.h"
 
@@ -43,8 +42,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[PgyManager sharedPgyManager] startManagerWithAppId:@"f6b8259acd094e1fc1ca2a995a52cc4c"];//蒲公英
-    [TestinAgent init:@"a5bab9a07e9f73ff28d50db79a6d3e50" channel:@"test20150320"];
+    //[TestinAgent init:@"a5bab9a07e9f73ff28d50db79a6d3e50" channel:@"test20150320"];
     //    ECLog(@"TestinAgent init");
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"DataCache.sqlite"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
