@@ -59,11 +59,11 @@ class ECpageClass
       else
         root._listview_data.data = []
 
-        if data.count == 0
+        if data.order.length == 0
           root._listview_data.data = []
           root._listview_data.data.push
             viewType: "ListViewCellLine"
-            centerTitle: "用户订单不存在"
+            centerTitle: "用户优惠券不存在"
           $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
         else
           for order in data.order

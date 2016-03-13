@@ -122,7 +122,7 @@ class ECpageClass
     $A().page().widget("#{@_page_name}_ListViewBase_0").onItemInnerClick (data)-> root.onItemInnerClick(data)
     $A().page().widget("#{@_page_name}_ListViewBase_0").onItemClick (data)-> root.onItemClick(data)
     $A().page().onResume ()-> root.onResume()
-    # $A().page().onResult (data)-> root.onResult(data)
+    $A().page().onResult (data)-> root.onResult(data)
     $A().page().onCreated -> root.onCreated()
 
   constructor: (_page_name) ->
@@ -307,6 +307,18 @@ class ECpageClass
   onItemInnerClick: (data) ->
 
   onResult: (data) ->
+    $A().app().makeToast "正在签到"
+    $A().app().callApi
+      method: "comment/comments/create"
+      content_id: data.codeString
+      content: "签到"
+      typenum: 1
+      cacheTime: 0
+    .then (data1) ->
+      if data1.success == true
+        $A().app().makeToast "签到成功，谢谢。"
+      else
+        $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
 
   onResume: () ->
     $A().page("page_my").param("_setting_changed").then (data) ->

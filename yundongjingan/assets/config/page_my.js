@@ -108,6 +108,9 @@
       $A().page().onResume(function() {
         return root.onResume();
       });
+      $A().page().onResult(function(data) {
+        return root.onResult(data);
+      });
       return $A().page().onCreated(function() {
         return root.onCreated();
       });
@@ -317,7 +320,22 @@
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};
 
-    ECpageClass.prototype.onResult = function(data) {};
+    ECpageClass.prototype.onResult = function(data) {
+      $A().app().makeToast("正在签到");
+      return $A().app().callApi({
+        method: "comment/comments/create",
+        content_id: data.codeString,
+        content: "签到",
+        typenum: 1,
+        cacheTime: 0
+      }).then(function(data1) {
+        if (data1.success === true) {
+          return $A().app().makeToast("签到成功，谢谢。");
+        } else {
+          return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+        }
+      });
+    };
 
     ECpageClass.prototype.onResume = function() {
       return $A().page("page_my").param("_setting_changed").then(function(data) {
